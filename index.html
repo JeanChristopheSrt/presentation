@@ -120,6 +120,44 @@
   .media-band.design-band .word{color:rgba(244,241,233,.34)}
 }
 
+
+/* Dernière finition : composition Bauhaus sur fond transparent et diptyque mer resserré */
+.design-composition{width:100%;}
+.media-band.design-band{
+  height:clamp(360px,62vw,760px);
+  min-height:0;
+  background:var(--paper);
+  overflow:hidden;
+}
+.media-band.design-band>img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:contain !important;object-position:center center;
+  background:transparent;
+}
+.media-band.design-band:after{display:none;}
+.design-signature{
+  width:100%;padding:14px 0 0;
+  color:#fff;text-align:center;
+  font-size:clamp(25px,5.2vw,70px);
+  line-height:.95;font-weight:700;
+  letter-spacing:-.045em;text-transform:uppercase;
+}
+.media-band.sea-band{
+  gap:0 !important;
+  column-gap:0 !important;
+  box-shadow:none !important;
+  background:var(--paper);
+}
+.media-band.sea-band:after{display:none !important;}
+.media-band.sea-band video{
+  margin:0 !important;border:0 !important;box-shadow:none !important;
+  object-fit:contain !important;
+}
+@media(max-width:800px){
+  .media-band.design-band{height:58vw;min-height:300px;}
+  .design-signature{font-size:clamp(23px,6vw,44px);padding-top:12px;}
+  .media-band.sea-band{gap:0 !important;column-gap:0 !important;}
+}
 </style>
 </head>
 <body>
@@ -178,9 +216,11 @@
 </section>
 
 <section class="media-pillar">
-  <div class="media-band design-band">
-    <img src="bauhaus.jpg" alt="Design et architecture">
-    <div class="word">Design<br>&amp; architecture</div>
+  <div class="design-composition">
+    <div class="media-band design-band">
+      <img src="bauhaus.png" alt="Composition graphique Bauhaus">
+    </div>
+    <div class="design-signature">Design &amp; architecture</div>
   </div>
 </section>
 
