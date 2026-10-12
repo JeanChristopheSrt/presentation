@@ -56,6 +56,20 @@
 @media(max-width:800px){.nav{padding:14px 14px;font-size:7px;align-items:center}.brand{max-width:100px;line-height:1.2}.navlinks{margin-left:auto;gap:9px;display:flex;align-items:center;white-space:nowrap}.hero{padding:105px 18px 25px}.hero h1{font-size:clamp(60px,16vw,100px)}.hero-bottom{font-size:12px}.manifesto{padding:14vh 18px 17vh}.manifesto p{font-size:clamp(40px,11vw,72px)}.manifesto p+p{margin-top:10vh}.photo-full{height:82vh;min-height:520px}.photo-full .caption{left:18px}.intro{display:grid;grid-template-columns:1fr;gap:28px;padding:12vh 24px 8vh}.intro:before{left:18px;top:9vh;height:11vh}.intro:after{left:0;top:8vh;width:28px;height:90px}.intro h2{margin:0 0 10px}.intro-copy{font-size:21px}.mission-line{padding:12vh 24px;min-height:55vh}.mission-line:before{left:18px;right:18px}.mission-line:after{left:4px;width:44px;height:44px;top:calc(50% - 22px)}.mission-line .label{font-size:13px;margin-bottom:30px}.mission-line h2{font-size:clamp(68px,20vw,120px)}.mission-line p{margin:38px 0 0;font-size:20px}.pillars-intro{padding:8vh 24px 1vh;display:block}.pillars-intro:before{right:24px;height:12vh}.pillars-intro:after{right:8px;width:48px;height:48px;top:3vh}.pillars-intro h2{font-size:clamp(48px,13vw,76px)}.editorial{padding:10vh 18px 13vh}.editorial:before{left:18px;width:22px;height:22px}.editorial:after{left:29px;top:22px;height:5vh}.editorial .word{font-size:clamp(80px,22vw,145px);left:18px;top:10vh}.editorial .text,.editorial.alt .text{margin:40px 0}.editorial .image,.editorial.alt .image{width:100%;height:62vh;margin:0}.editorial.alt .word{margin-left:12vw}.statement{padding:13vh 18px;min-height:65vh}.statement h2{font-size:clamp(52px,15vw,88px)}.statement p{margin:45px 0 0;font-size:18px}.final-photo{height:65vh}.contact{padding:12vh 18px 30px}.contact h2{font-size:clamp(54px,15vw,90px);margin-bottom:9vh}.links{display:grid;grid-template-columns:1fr 1fr;gap:18px}footer{padding:22px 18px;display:block}footer span+span{display:block;margin-top:10px}}
 .image img,.photo-full img,.final-photo img{min-height:100%;}.image img[src$=".jpg"]:not([alt]){display:none}.image-placeholder{position:absolute;inset:0;background:linear-gradient(135deg,#d9d0bf 0%,#b7b5a8 48%,#7f8b83 100%)}
 @media(max-width:800px){.travel-section{padding:8vh 18px 6vh}.travel-band{height:58vh;min-height:360px;grid-template-columns:repeat(3,minmax(0,1fr))}.travel-band .word{left:15px;bottom:22px;font-size:clamp(44px,11vw,80px)}.travel-copy{margin:25px 0 0;font-size:14px}.book-section{grid-template-columns:1fr;gap:35px;padding:10vh 18px 12vh}.book-section:before{right:20px;top:5vh;width:48px;height:48px}.book-visual{min-height:420px}.book-visual img{max-height:360px}.book-visual .book-placeholder{inset:8% 22%}.book-copy h2{font-size:clamp(62px,17vw,100px)}.book-copy h3{font-size:32px}.sea-videos{grid-template-columns:1fr 1fr}.literature-section{grid-template-columns:1fr;gap:44px;padding:8vh 18px 10vh}.literature-word{font-size:clamp(88px,21vw,150px)}.book-copy h2.book-title-display{font-size:clamp(68px,18vw,105px);margin-bottom:28px}.literature-copy{font-size:22px}.literature-rule{margin-top:28px}}
+
+/* Piliers photo plein largeur, avec titre superposé comme Voyages & rencontres */
+.media-pillar{position:relative;padding:10vh 7vw 8vh;isolation:isolate}
+.media-pillar:before{content:"";position:absolute;z-index:-1;left:7vw;top:0;width:1px;height:8vh;background:#a58a6d}
+.media-band{position:relative;height:68vh;min-height:430px;overflow:hidden;background:#b9ad9b}
+.media-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.media-band.design-band>img{object-fit:contain;background:var(--paper)}
+.media-band .word{position:absolute;z-index:3;left:3vw;bottom:5vh;font-size:clamp(54px,10vw,145px);line-height:.78;letter-spacing:-.075em;font-weight:800;text-transform:uppercase;color:rgba(244,241,233,.82);text-shadow:0 1px 12px #0002;pointer-events:none}
+.media-band:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,9,.22),transparent 45%,rgba(10,10,9,.2));pointer-events:none}
+.sea-band{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--paper)}
+.sea-band video{display:block;width:100%;height:100%;min-width:0;object-fit:cover;background:#c9c0ae}
+.sea-band .word{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:clamp(72px,13vw,180px);color:rgba(244,241,233,.78)}
+@media(max-width:800px){.media-pillar{padding:8vh 18px 6vh}.media-band{height:58vh;min-height:360px}.media-band .word{left:15px;bottom:22px;font-size:clamp(44px,11vw,80px)}.sea-band{grid-template-columns:1fr 1fr}.sea-band .word{left:50%;top:50%;bottom:auto;font-size:clamp(48px,12vw,85px)}}
+
 </style>
 </head>
 <body>
@@ -106,27 +120,26 @@
 <div><h2>Cinq univers.<br>Une identité.</h2></div>
 </section>
 
-<section class="editorial">
-<div class="word">Sport</div>
-<div class="text">Le goût de l’effort. La discipline. Le collectif. Une culture de la performance qui dépasse largement le terrain.</div>
-<div class="image"><img src="rugby.jpg" alt="Rugby — sport et collectif"></div>
+<section class="media-pillar">
+  <div class="media-band">
+    <img src="rugby.jpg" alt="Rugby">
+    <div class="word">Sport</div>
+  </div>
 </section>
 
-<section class="editorial alt">
-<div class="word">Design<br>&amp; matière</div>
-<div class="text">Les lignes, les textures, les matières. La lumière, les volumes et les détails qui donnent une identité à un lieu ou à un objet.</div>
-<div class="image"><img src="bauhaus.jpg" alt="Design et architecture — inspiration Bauhaus"></div>
+<section class="media-pillar">
+  <div class="media-band design-band">
+    <img src="bauhaus.jpg" alt="Design et architecture">
+    <div class="word">Design<br>&amp; architecture</div>
+  </div>
 </section>
 
-<section class="editorial">
-<div class="word">Mer</div>
-<div class="text">L’horizon, l’espace, le mouvement. Une autre manière de regarder le temps.</div>
-<div class="image sea-media">
-  <div class="sea-videos">
+<section class="media-pillar">
+  <div class="media-band sea-band">
     <video src="mer1.mov" autoplay muted loop playsinline preload="metadata" aria-label="Vidéo de la mer 1"></video>
     <video src="mer2.mov" autoplay muted loop playsinline preload="metadata" aria-label="Vidéo de la mer 2"></video>
+    <div class="word">Mer</div>
   </div>
-</div>
 </section>
 
 <section class="travel-section">
@@ -146,8 +159,6 @@
     <p class="literature-copy">Comme un miroir personnel unique. Un reflet dans lequel j’ancre ma contemporanéité et mes complexités.</p>
   </div>
 </section>
-
-<section class="final-photo"><img src="photo-final.jpg" alt="Projet ou portrait"></section>
 
 <section class="contact">
 <h2>La suite<br>se construit<br>ensemble.</h2>
