@@ -85,6 +85,41 @@
  .sea-band{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
  .sea-band .word{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);font-size:clamp(70px,18vw,140px)}
 }
+
+/* Corrections finales : vidéos intégralement visibles, MER plus espacé, typo Design plus discrète */
+.media-band.sea-band{
+  height:min(78vh,760px);
+  min-height:420px;
+  overflow:hidden;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:stretch;
+}
+.media-band.sea-band video{
+  display:block;
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  object-fit:contain !important;
+  object-position:center center;
+  background:var(--paper);
+}
+.media-band.sea-band .word{
+  letter-spacing:.08em;
+  font-size:clamp(100px,20vw,270px);
+  color:rgba(244,241,233,.88);
+}
+.media-band.design-band .word{
+  color:rgba(244,241,233,.34);
+  text-shadow:0 1px 10px rgba(0,0,0,.06);
+}
+@media(max-width:800px){
+  .media-band.sea-band{height:62vh;min-height:360px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .media-band.sea-band video{object-fit:contain !important}
+  .media-band.sea-band .word{font-size:clamp(64px,16vw,125px);letter-spacing:.07em}
+  .media-band.design-band .word{color:rgba(244,241,233,.34)}
+}
+
 </style>
 </head>
 <body>
