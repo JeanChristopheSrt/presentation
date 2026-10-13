@@ -355,6 +355,74 @@
   .travel-band .travel-photo{aspect-ratio:4 / 5;}
 }
 
+
+
+/* Finition structurelle finale : hiérarchie, respiration et titre mobile sur trois photos */
+.pillars-intro{padding-top:7vh;padding-bottom:1vh;}
+.pillars-intro .who-label{
+  font-size:clamp(62px,8.5vw,116px)!important;
+  line-height:.82!important;
+  letter-spacing:-.075em!important;
+  font-weight:800!important;
+  text-transform:none!important;
+  margin:0 0 16px!important;
+  max-width:100%;
+}
+.pillars-intro h2{
+  font-size:clamp(62px,8.5vw,116px)!important;
+  line-height:.82!important;
+  letter-spacing:-.075em!important;
+  font-weight:800!important;
+}
+/* Rapproche les compositions sans modifier les images elles-mêmes. */
+.media-pillar{padding:4vh 7vw 2vh;}
+.media-pillar + .media-pillar{margin-top:-2.5vh;}
+@media(max-width:800px){
+  .pillars-intro{padding-top:5vh;padding-bottom:0;}
+  .pillars-intro .who-label{font-size:clamp(42px,11vw,68px)!important;line-height:.86!important;margin-bottom:12px!important;}
+  .pillars-intro h2{font-size:clamp(42px,11vw,68px)!important;line-height:.86!important;}
+  .media-pillar{padding:2vh 18px 1vh;}
+  .media-pillar + .media-pillar{margin-top:-.5vh;}
+  .travel-section{padding:1vh 18px 4vh!important;}
+  .travel-band{position:relative;gap:8px!important;}
+  /* Le titre traverse verticalement les trois photos, de la première à la troisième. */
+  .travel-band .word{
+    position:absolute!important;
+    z-index:4!important;
+    left:8px!important;
+    top:8px!important;
+    bottom:8px!important;
+    right:auto!important;
+    width:30px!important;
+    display:block!important;
+    transform:none!important;
+    margin:0!important;
+    padding:0!important;
+    font-size:1px!important;
+    line-height:1!important;
+    color:transparent!important;
+    text-shadow:none!important;
+  }
+  .travel-word-mobile{
+    position:absolute;
+    inset:0 auto 0 0;
+    display:flex!important;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    width:30px;
+    padding:2px 0;
+    color:rgba(244,241,233,.97);
+    font-size:clamp(13px,3.5vw,19px);
+    font-weight:800;
+    line-height:1;
+    letter-spacing:0;
+    text-shadow:0 1px 8px rgba(0,0,0,.55);
+  }
+  .travel-word-mobile span{display:block;flex:0 0 auto;}
+  .travel-word-desktop{display:none!important;}
+}
+
 </style>
 </head>
 <body>
@@ -434,7 +502,7 @@
     <div class="travel-photo"><img src="voyages-1.jpg" alt="Voyages et rencontres — photo 1"></div>
     <div class="travel-photo"><img src="voyages-2.jpg" alt="Voyages et rencontres — photo 2"></div>
     <div class="travel-photo"><img src="voyages-3.jpg" alt="Voyages et rencontres — photo 3"></div>
-    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile">V<br>O<br>Y<br>A<br>G<br>E<br>S<br>&amp;<br>R<br>E<br>N<br>C<br>O<br>N<br>T<br>R<br>E<br>S</span></div>
+    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile" aria-label="Voyages et rencontres"><span>V</span><span>O</span><span>Y</span><span>A</span><span>G</span><span>E</span><span>S</span><span>&amp;</span><span>R</span><span>E</span><span>N</span><span>C</span><span>O</span><span>N</span><span>T</span><span>R</span><span>E</span><span>S</span></span></div>
   </div>
 </section>
 
