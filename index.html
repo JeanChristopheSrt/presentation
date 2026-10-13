@@ -295,6 +295,66 @@
   .travel-band .travel-photo{aspect-ratio:4 / 5;}
 }
 
+
+
+/* Réglages précis demandés : hiérarchie, Bauhaus et titre mobile des voyages */
+.pillars-intro .who-label{
+  font-size:clamp(48px,7vw,96px) !important;
+  line-height:.88;
+  letter-spacing:-.06em;
+  font-weight:800;
+  text-transform:none;
+  margin-bottom:18px;
+}
+.pillars-intro h2{font-size:clamp(48px,7vw,96px) !important;line-height:.88;}
+/* Rapprocher les deux compositions photo sans modifier leurs dimensions. */
+.media-pillar + .media-pillar{margin-top:-3.5vh;}
+/* Le titre Bauhaus reste écrit normalement : on augmente sa taille, sans étirer les espaces. */
+.design-signature{
+  width:100%;
+  padding:8px 0 0;
+  border-top:1px solid rgba(255,255,255,.95);
+  text-align:center !important;
+  text-align-last:auto !important;
+  white-space:nowrap;
+  letter-spacing:-.065em !important;
+  font-size:clamp(25px,5vw,68px) !important;
+  line-height:.98;
+  transform:none;
+}
+.travel-word-mobile{display:none;}
+.travel-word-desktop{display:inline;}
+@media(max-width:800px){
+  .pillars-intro .who-label{font-size:clamp(46px,11vw,68px) !important;margin-bottom:16px;}
+  .pillars-intro h2{font-size:clamp(46px,11vw,68px) !important;}
+  .media-pillar + .media-pillar{margin-top:-1.5vh;}
+  .design-signature{font-size:clamp(19px,5.2vw,34px) !important;white-space:normal;}
+  .travel-word-desktop{display:none;}
+  .travel-word-mobile{display:inline;}
+  .travel-band .word{
+    position:absolute !important;
+    z-index:3;
+    left:10px !important;
+    top:14px !important;
+    bottom:14px !important;
+    transform:none !important;
+    display:flex !important;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    width:34px;
+    margin:0 !important;
+    padding:0;
+    font-size:clamp(14px,4.2vw,24px) !important;
+    line-height:1 !important;
+    letter-spacing:0 !important;
+    color:rgba(244,241,233,.96) !important;
+    text-shadow:0 1px 8px rgba(0,0,0,.45) !important;
+    text-align:center;
+  }
+  .travel-band .travel-photo{aspect-ratio:4 / 5;}
+}
+
 </style>
 </head>
 <body>
@@ -374,7 +434,7 @@
     <div class="travel-photo"><img src="voyages-1.jpg" alt="Voyages et rencontres — photo 1"></div>
     <div class="travel-photo"><img src="voyages-2.jpg" alt="Voyages et rencontres — photo 2"></div>
     <div class="travel-photo"><img src="voyages-3.jpg" alt="Voyages et rencontres — photo 3"></div>
-    <div class="word">Voyages<br>&amp; rencontres</div>
+    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile">V<br>O<br>Y<br>A<br>G<br>E<br>S<br>&amp;<br>R<br>E<br>N<br>C<br>O<br>N<br>T<br>R<br>E<br>S</span></div>
   </div>
 </section>
 
