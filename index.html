@@ -158,6 +158,81 @@
   .design-signature{font-size:clamp(23px,6vw,44px);padding-top:12px;}
   .media-band.sea-band{gap:0 !important;column-gap:0 !important;}
 }
+
+
+/* Ajustements structurels : introduction, composition Bauhaus et photos mobiles */
+.pillars-intro .who-label{
+  margin:0 0 22px;
+  font-size:clamp(12px,1.1vw,15px);
+  line-height:1;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+.design-composition{width:100%;}
+.media-band.design-band{
+  height:clamp(320px,52vw,650px);
+  min-height:0;
+  overflow:visible;
+  background:transparent;
+}
+.media-band.design-band>img{
+  object-fit:contain !important;
+  object-position:center bottom;
+}
+.design-signature{
+  position:relative;
+  z-index:2;
+  width:100%;
+  margin-top:-2px;
+  padding:8px 0 0;
+  border-top:1px solid rgba(255,255,255,.9);
+  color:#fff;
+  text-align:center;
+  font-size:clamp(24px,4.2vw,58px);
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+}
+/* Sur téléphone, chaque photo de voyage conserve ses proportions au lieu d'être comprimée en trois colonnes. */
+@media(max-width:800px){
+  .pillars-intro .who-label{margin-bottom:18px;font-size:11px;}
+  .media-band.design-band{height:72vw;min-height:260px;}
+  .design-signature{margin-top:0;padding-top:10px;font-size:clamp(22px,6vw,36px);}
+  .travel-section{padding:7vh 18px 6vh;}
+  .travel-band{
+    display:flex;
+    flex-direction:column;
+    height:auto;
+    min-height:0;
+    overflow:visible;
+    gap:12px;
+    background:transparent;
+  }
+  .travel-band .travel-photo{
+    width:100%;
+    height:auto;
+    aspect-ratio:4 / 5;
+    overflow:hidden;
+    flex:none;
+  }
+  .travel-band .travel-photo+.travel-photo{border-left:0;}
+  .travel-band img{width:100%;height:100%;object-fit:cover;}
+  .travel-band:after{display:none;}
+  .travel-band .word{
+    position:relative;
+    left:auto;bottom:auto;
+    order:-1;
+    display:block;
+    font-size:clamp(44px,11vw,78px);
+    line-height:.82;
+    margin:0 0 10px;
+    color:var(--ink);
+    text-shadow:none;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -205,7 +280,7 @@
 </section>
 
 <section class="pillars-intro">
-<div><h2>Cinq univers.<br>Une identité.</h2></div>
+<div><div class="who-label">Qui suis-je ?</div><h2>Cinq univers.<br>Une identité.</h2></div>
 </section>
 
 <section class="media-pillar">
