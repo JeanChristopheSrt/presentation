@@ -534,3 +534,59 @@ if (bookCover && bookPlaceholder) {
 </script>
 </body>
 </html>
+<style>
+/* Équilibre final des respirations entre les compositions */
+@media (min-width:801px){
+  .media-pillar{padding:3.5vh 7vw 3.5vh !important;}
+  .media-pillar + .media-pillar{margin-top:0 !important;}
+  .travel-section{padding:4vh 7vw 5vh !important;}
+  .travel-band{gap:0 !important;}
+}
+@media (max-width:800px){
+  .pillars-intro{padding-bottom:1vh !important;}
+  .media-pillar{padding:2vh 18px 1.5vh !important;}
+  .media-pillar + .media-pillar{margin-top:0 !important;}
+  .media-band{height:54vh;min-height:320px;}
+  .media-band.design-band{height:68vw;min-height:240px;}
+  .design-signature{padding-top:7px !important;margin-top:0 !important;}
+  .travel-section{padding:2.5vh 18px 3vh !important;}
+  .travel-band{gap:10px !important;}
+  /* Le titre se lit de haut en bas sur la hauteur cumulée des trois photos. */
+  .travel-band .word{
+    position:absolute !important;
+    z-index:5 !important;
+    left:7px !important;
+    top:0 !important;
+    bottom:0 !important;
+    right:auto !important;
+    width:28px !important;
+    height:auto !important;
+    display:block !important;
+    order:initial !important;
+    margin:0 !important;
+    padding:0 !important;
+    transform:none !important;
+    color:transparent !important;
+    font-size:1px !important;
+    text-shadow:none !important;
+  }
+  .travel-word-mobile{
+    position:static !important;
+    inset:auto !important;
+    width:100% !important;
+    height:100% !important;
+    padding:8px 0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:space-around !important;
+    align-items:center !important;
+    color:rgba(244,241,233,.98) !important;
+    font-size:clamp(13px,3.7vw,18px) !important;
+    font-weight:800 !important;
+    line-height:1 !important;
+    text-shadow:0 1px 7px rgba(0,0,0,.6) !important;
+  }
+  .travel-word-mobile span{display:block !important;flex:0 0 auto !important;}
+  .travel-word-desktop{display:none !important;}
+}
+</style>
