@@ -233,6 +233,68 @@
   }
 }
 
+
+
+/* Ajustements demandés : hiérarchie de l'introduction et adaptations desktop/mobile */
+.pillars-intro .who-label{
+  display:block;
+  margin:0 0 18px;
+  font-size:clamp(28px,5.2vw,72px);
+  line-height:.88;
+  letter-spacing:-.055em;
+  text-transform:none;
+  font-weight:800;
+}
+.pillars-intro h2{
+  font-size:clamp(48px,7vw,96px);
+  line-height:.88;
+}
+/* Le titre doit occuper presque toute la largeur de la composition Bauhaus. */
+.design-signature{
+  width:100%;
+  margin-top:-1px;
+  padding:8px 0 0;
+  border-top:1px solid rgba(255,255,255,.95);
+  font-size:clamp(26px,5.6vw,78px);
+  line-height:.95;
+  letter-spacing:-.055em;
+  white-space:nowrap;
+  text-align:justify;
+  text-align-last:justify;
+}
+/* Sur ordinateur, les deux vidéos se rejoignent visuellement sans bande centrale. */
+@media(min-width:801px){
+  .media-band.sea-band{gap:0!important;column-gap:0!important;grid-template-columns:1fr 1fr;}
+  .media-band.sea-band video{width:100%;height:100%;object-fit:cover!important;object-position:center center;}
+}
+/* Mobile : garder le graphisme photo de la version web, avec le titre en vertical. */
+@media(max-width:800px){
+  .pillars-intro .who-label{font-size:clamp(30px,8vw,46px);margin-bottom:16px;}
+  .pillars-intro h2{font-size:clamp(46px,11vw,68px);}
+  .design-signature{font-size:clamp(20px,5.8vw,34px);letter-spacing:-.045em;white-space:normal;text-align:center;text-align-last:center;}
+  .travel-band{position:relative;}
+  .travel-band .word{
+    position:absolute;
+    z-index:3;
+    left:12px;
+    top:50%;
+    bottom:auto;
+    transform:translateY(-50%);
+    writing-mode:vertical-rl;
+    text-orientation:mixed;
+    order:initial;
+    margin:0;
+    padding:0;
+    font-size:clamp(32px,8vw,54px);
+    line-height:.9;
+    letter-spacing:-.055em;
+    color:rgba(244,241,233,.9);
+    text-shadow:0 1px 12px rgba(0,0,0,.3);
+    text-align:left;
+  }
+  .travel-band .travel-photo{aspect-ratio:4 / 5;}
+}
+
 </style>
 </head>
 <body>
