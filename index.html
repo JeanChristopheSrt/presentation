@@ -516,6 +516,90 @@
   }
 }
 
+
+
+/* Harmonisation finale : le rythme des sections centrales reprend la respiration des parties haute et basse. */
+@media (min-width:801px){
+  .media-pillar{
+    padding:5vh 7vw !important;
+    margin:0 !important;
+  }
+  .media-pillar + .media-pillar{margin-top:0 !important;}
+  .travel-section{padding:5vh 7vw !important;}
+  .travel-band{gap:0 !important;}
+}
+@media (max-width:800px){
+  .media-pillar{
+    padding:3vh 18px !important;
+    margin:0 !important;
+  }
+  .media-pillar + .media-pillar{margin-top:0 !important;}
+  .travel-section{padding:3vh 18px !important;}
+  .travel-band{
+    position:relative !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+  }
+  .travel-band .travel-photo{
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:4 / 5 !important;
+    flex:none !important;
+    overflow:hidden !important;
+  }
+  .travel-band .travel-photo + .travel-photo{border-left:0 !important;}
+  .travel-band .travel-photo img{width:100% !important;height:100% !important;object-fit:cover !important;}
+  .travel-band:after{display:none !important;}
+  /* Deux colonnes typographiques, une par mot, superposées à la série complète des trois photos. */
+  .travel-band .word{
+    position:absolute !important;
+    z-index:8 !important;
+    left:0 !important;top:0 !important;right:0 !important;bottom:0 !important;
+    width:100% !important;height:100% !important;
+    display:block !important;
+    margin:0 !important;padding:0 !important;
+    transform:none !important;
+    font-size:0 !important;line-height:1 !important;
+    color:transparent !important;text-shadow:none !important;
+    pointer-events:none !important;
+  }
+  .travel-word-desktop{display:none !important;}
+  .travel-word-mobile{
+    position:absolute !important;inset:0 !important;
+    display:grid !important;
+    grid-template-columns:1fr 1.15fr !important;
+    align-items:center !important;
+    justify-items:center !important;
+    gap:8px !important;
+    width:100% !important;height:100% !important;
+    padding:18px 12px !important;
+    color:rgba(244,241,233,.98) !important;
+    font-size:clamp(24px,7.2vw,42px) !important;
+    font-weight:800 !important;line-height:1 !important;letter-spacing:-.04em !important;
+    text-shadow:0 1px 8px rgba(0,0,0,.65) !important;
+    writing-mode:horizontal-tb !important;
+  }
+  .travel-word-mobile .travel-word-col{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:3px !important;
+    min-width:0 !important;
+  }
+  .travel-word-mobile .travel-word-col > span{
+    display:block !important;flex:0 0 auto !important;
+    color:rgba(244,241,233,.98) !important;
+    font-size:inherit !important;line-height:.92 !important;
+    letter-spacing:0 !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -595,7 +679,7 @@
     <div class="travel-photo"><img src="voyages-1.jpg" alt="Voyages et rencontres — photo 1"></div>
     <div class="travel-photo"><img src="voyages-2.jpg" alt="Voyages et rencontres — photo 2"></div>
     <div class="travel-photo"><img src="voyages-3.jpg" alt="Voyages et rencontres — photo 3"></div>
-    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile" aria-label="Voyages et rencontres"><span>V</span><span>O</span><span>Y</span><span>A</span><span>G</span><span>E</span><span>S</span><span>&amp;</span><span>R</span><span>E</span><span>N</span><span>C</span><span>O</span><span>N</span><span>T</span><span>R</span><span>E</span><span>S</span></span></div>
+    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile" aria-label="Voyages et rencontres"><span class="travel-word-col"><span>V</span><span>O</span><span>Y</span><span>A</span><span>G</span><span>E</span><span>S</span><span>&amp;</span></span><span class="travel-word-col"><span>R</span><span>E</span><span>N</span><span>C</span><span>O</span><span>N</span><span>T</span><span>R</span><span>E</span><span>S</span></span></span></div>
   </div>
 </section>
 
