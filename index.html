@@ -713,6 +713,68 @@
   .travel-band .travel-photo{aspect-ratio:4/5!important;}
 }
 
+
+
+/* Finition typographique demandée : même traitement que SPORT et MER */
+.design-word-top,
+.design-word-bottom{
+  font-family:inherit !important;
+  font-weight:800 !important;
+  text-transform:uppercase !important;
+  color:#fff !important;
+  text-shadow:0 1px 12px rgba(0,0,0,.22) !important;
+  text-align:center !important;
+  width:100% !important;
+  letter-spacing:-.075em !important;
+  line-height:.82 !important;
+  white-space:nowrap !important;
+}
+@media (min-width:801px){
+  .design-composition{width:100% !important;align-items:stretch !important;}
+  .design-word-top,.design-word-bottom{font-size:clamp(54px,10vw,145px) !important;}
+  .design-word-top{margin:0 0 1.2vh !important;}
+  .design-word-bottom{margin:1.2vh 0 0 !important;}
+}
+@media (max-width:800px){
+  .design-word-top,.design-word-bottom{font-size:clamp(28px,8vw,52px) !important;}
+  .design-word-top{margin:0 0 1vh !important;}
+  .design-word-bottom{margin:1vh 0 0 !important;}
+  /* Lettres verticales dans le sens normal : première lettre en haut, dernière en bas. */
+  .travel-word-mobile{
+    display:grid !important;
+    grid-template-columns:1fr auto 1fr !important;
+    align-items:center !important;
+    justify-items:center !important;
+    gap:0 !important;
+    padding:0 3px !important;
+    color:#fff !important;
+  }
+  .travel-word-mobile .travel-voyages,
+  .travel-word-mobile .travel-rencontres{
+    display:block !important;
+    writing-mode:vertical-rl !important;
+    text-orientation:upright !important;
+    transform:none !important;
+    white-space:nowrap !important;
+    font-family:inherit !important;
+    font-size:clamp(24px,7.4vw,48px) !important;
+    font-weight:800 !important;
+    line-height:1 !important;
+    letter-spacing:-.04em !important;
+    color:rgba(255,255,255,.82) !important;
+    text-shadow:0 1px 10px rgba(0,0,0,.4) !important;
+  }
+  .travel-word-mobile .travel-amp{
+    display:block !important;
+    align-self:center !important;
+    font-family:inherit !important;
+    font-size:clamp(38px,10vw,64px) !important;
+    line-height:1 !important;
+    color:rgba(255,255,255,.9) !important;
+    text-shadow:0 1px 10px rgba(0,0,0,.4) !important;
+  }
+}
+
 </style>
 </head>
 <body>
