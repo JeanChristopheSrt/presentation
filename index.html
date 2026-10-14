@@ -634,6 +634,48 @@
   .travel-word-mobile .travel-voyages,.travel-word-mobile .travel-rencontres{display:block!important;color:rgba(244,241,233,.42)!important;white-space:nowrap;}
 }
 
+
+
+/* Corrections ciblées : rythme homogène des piliers et titre mobile lisible */
+@media (min-width:801px){
+  /* Un espacement identique entre chaque composition, sans marges négatives. */
+  .pillars-intro{padding-bottom:4vh!important;}
+  .media-pillar{padding:4vh 7vw!important;margin:0!important;}
+  .media-pillar + .media-pillar{margin-top:0!important;}
+  .travel-section{padding:4vh 7vw!important;margin:0!important;}
+  .travel-band{gap:0!important;}
+  /* Design / Architecture : deux lignes normales, centrées, sans filet ni espacement forcé. */
+  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;}
+  .design-signature{order:0!important;border:0!important;padding:0!important;margin:0 0 1.2vh!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:0!important;white-space:normal!important;text-align:center!important;line-height:.82!important;}
+  .design-band{order:1!important;}
+  .design-signature .design-word-top,.design-signature .design-word-bottom{display:block!important;width:100%!important;font-size:clamp(54px,10vw,145px)!important;font-weight:800!important;letter-spacing:-.075em!important;line-height:.82!important;color:#fff!important;}
+  .design-signature .design-word-bottom{margin-top:.8vh!important;}
+}
+@media (max-width:800px){
+  /* Le même principe de respiration, adapté à la largeur du téléphone. */
+  .pillars-intro{padding-bottom:2.5vh!important;}
+  .media-pillar{padding:2.5vh 18px!important;margin:0!important;}
+  .media-pillar + .media-pillar{margin-top:0!important;}
+  .travel-section{padding:2.5vh 18px!important;margin:0!important;}
+  .travel-band{position:relative!important;display:flex!important;flex-direction:column!important;gap:0!important;height:auto!important;min-height:0!important;overflow:visible!important;}
+  .travel-band .travel-photo{position:relative!important;width:100%!important;height:auto!important;aspect-ratio:4/5!important;flex:none!important;overflow:hidden!important;}
+  .travel-band .travel-photo + .travel-photo{border-left:0!important;}
+  .travel-band .travel-photo img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;}
+  .travel-band:after{display:none!important;}
+  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;}
+  .design-signature{order:0!important;border:0!important;padding:0!important;margin:0 0 1vh!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:0!important;white-space:normal!important;text-align:center!important;line-height:.82!important;}
+  .design-band{order:1!important;height:58vw!important;min-height:260px!important;}
+  .design-signature .design-word-top,.design-signature .design-word-bottom{display:block!important;width:100%!important;font-size:clamp(42px,11vw,78px)!important;font-weight:800!important;letter-spacing:-.075em!important;line-height:.82!important;color:#fff!important;}
+  .design-signature .design-word-bottom{margin-top:.6vh!important;}
+  /* Texte horizontal et dans le sens de lecture : VOYAGES en haut, & au centre, RENCONTRES en bas. */
+  .travel-band .word{position:absolute!important;z-index:8!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;margin:0!important;padding:0!important;transform:none!important;font-size:0!important;line-height:1!important;color:transparent!important;text-shadow:none!important;pointer-events:none!important;}
+  .travel-word-desktop{display:none!important;}
+  .travel-word-mobile{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;padding:0!important;font-size:clamp(30px,9vw,58px)!important;font-weight:800!important;line-height:.82!important;letter-spacing:-.06em!important;color:rgba(244,241,233,.42)!important;text-shadow:none!important;pointer-events:none!important;writing-mode:horizontal-tb!important;}
+  .travel-word-mobile .travel-voyages{position:absolute!important;left:2%!important;top:14%!important;width:65%!important;text-align:center!important;white-space:nowrap!important;color:rgba(244,241,233,.42)!important;}
+  .travel-word-mobile .travel-amp{position:absolute!important;left:50%!important;top:44%!important;transform:translate(-50%,-50%)!important;font-size:clamp(40px,12vw,76px)!important;color:rgba(244,241,233,.52)!important;}
+  .travel-word-mobile .travel-rencontres{position:absolute!important;left:32%!important;right:1%!important;bottom:13%!important;text-align:center!important;font-size:clamp(26px,7.7vw,48px)!important;white-space:nowrap!important;color:rgba(244,241,233,.42)!important;}
+}
+
 </style>
 </head>
 <body>
