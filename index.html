@@ -138,7 +138,8 @@
 
 @media(max-width:800px){
   /* Même respiration régulière entre les compositions centrales. */
-  .pillars-intro{padding:6vh 18px 3vh!important;}
+  /* Retour à la mise en page mobile précédente de « Qui suis-je ? ». */
+  .pillars-intro{padding:8vh 24px 1vh!important;display:block!important;}
   .media-pillar{padding:4.5vh 18px!important;margin:0!important;}
   .media-pillar + .media-pillar{margin-top:0!important;}
   .media-pillar:before{left:18px;height:3vh;}
@@ -148,12 +149,13 @@
   /* Le mot DESIGN doit être proche de Bauhaus ; ARCHITECTURE garde la même respiration dessous. */
   .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
   .design-word-top,.design-word-bottom{font-size:clamp(54px,14vw,92px)!important;line-height:.8!important;letter-spacing:-.085em!important;color:#fff!important;}
-  .design-word-top{margin:0 0 .2vh!important;}
+  .design-word-top{margin:0!important;}
   .media-band.design-band{height:58vw!important;min-height:250px!important;max-height:360px;}
-  .design-word-bottom{margin:.2vh 0 0!important;}
+  .design-word-bottom{margin:0!important;}
 
   /* Les vidéos restent jointives et intégralement visibles. */
   .media-band.sea-band{height:62vh;min-height:360px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;}
+  .media-band.sea-band:after{display:none!important;}
   .media-band.sea-band video{object-fit:contain!important;}
   .media-band.sea-band .word{font-size:clamp(64px,16vw,125px);letter-spacing:.07em;}
 
