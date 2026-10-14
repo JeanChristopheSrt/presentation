@@ -600,6 +600,40 @@
   }
 }
 
+
+
+/* Ajustement éditorial final — espaces réguliers et titres de compositions */
+@media (min-width:801px){
+  .pillars-intro{padding-bottom:3.5vh !important;}
+  .media-pillar{padding:3.5vh 7vw !important;margin:0 !important;}
+  .media-pillar + .media-pillar{margin-top:0 !important;}
+  .travel-section{padding:3.5vh 7vw !important;}
+  .travel-band{gap:0 !important;}
+  .design-composition{display:flex;flex-direction:column;align-items:stretch;}
+  .design-band{order:2;}
+  .design-signature{order:1;border:0!important;padding:0!important;margin:0 0 1.2vh!important;display:flex;flex-direction:column;align-items:center;gap:0;white-space:normal!important;text-align:center!important;line-height:.8!important;}
+  .design-signature .design-word-top,.design-signature .design-word-bottom{display:block;width:100%;font-size:clamp(54px,10vw,145px);font-weight:800;letter-spacing:-.075em;line-height:.82;color:#fff;}
+  .design-signature .design-word-bottom{margin-top:1vh;}
+}
+@media (max-width:800px){
+  /* Le même rythme de respiration pour tous les piliers sur mobile. */
+  .pillars-intro{padding-bottom:2.5vh!important;}
+  .media-pillar{padding:2.5vh 18px!important;margin:0!important;}
+  .media-pillar + .media-pillar{margin-top:0!important;}
+  .travel-section{padding:2.5vh 18px!important;}
+  .design-composition{display:flex;flex-direction:column;align-items:stretch;}
+  .design-band{order:2;height:58vw!important;min-height:260px!important;}
+  .design-signature{order:1;border:0!important;padding:0!important;margin:0 0 1vh!important;display:flex;flex-direction:column;align-items:center;gap:0;white-space:normal!important;text-align:center!important;line-height:.82!important;}
+  .design-signature .design-word-top,.design-signature .design-word-bottom{display:block;width:100%;font-size:clamp(42px,11vw,78px);font-weight:800;letter-spacing:-.075em;line-height:.82;color:#fff;}
+  .design-signature .design-word-bottom{margin-top:.6vh;}
+  .travel-band{gap:0!important;}
+  .travel-word-mobile{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;padding:0!important;font-size:clamp(30px,9vw,58px)!important;font-weight:800!important;line-height:.82!important;letter-spacing:-.06em!important;color:rgba(244,241,233,.42)!important;text-shadow:none!important;pointer-events:none!important;}
+  .travel-word-mobile .travel-voyages{position:absolute;left:2%;top:14%;width:65%;text-align:center;}
+  .travel-word-mobile .travel-amp{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-size:clamp(40px,12vw,76px)!important;color:rgba(244,241,233,.52)!important;}
+  .travel-word-mobile .travel-rencontres{position:absolute;left:32%;right:1%;bottom:13%;text-align:center;font-size:clamp(26px,7.7vw,48px)!important;}
+  .travel-word-mobile .travel-voyages,.travel-word-mobile .travel-rencontres{display:block!important;color:rgba(244,241,233,.42)!important;white-space:nowrap;}
+}
+
 </style>
 </head>
 <body>
@@ -662,7 +696,7 @@
     <div class="media-band design-band">
       <img src="bauhaus.png" alt="Composition graphique Bauhaus">
     </div>
-    <div class="design-signature">Design &amp; architecture</div>
+    <div class="design-signature"><span class="design-word-top">Design</span><span class="design-word-bottom">Architecture</span></div>
   </div>
 </section>
 
@@ -679,7 +713,7 @@
     <div class="travel-photo"><img src="voyages-1.jpg" alt="Voyages et rencontres — photo 1"></div>
     <div class="travel-photo"><img src="voyages-2.jpg" alt="Voyages et rencontres — photo 2"></div>
     <div class="travel-photo"><img src="voyages-3.jpg" alt="Voyages et rencontres — photo 3"></div>
-    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile" aria-label="Voyages et rencontres"><span class="travel-word-col"><span>V</span><span>O</span><span>Y</span><span>A</span><span>G</span><span>E</span><span>S</span><span>&amp;</span></span><span class="travel-word-col"><span>R</span><span>E</span><span>N</span><span>C</span><span>O</span><span>N</span><span>T</span><span>R</span><span>E</span><span>S</span></span></span></div>
+    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile" aria-label="Voyages et rencontres"><span class="travel-voyages">Voyages</span><span class="travel-amp">&amp;</span><span class="travel-rencontres">Rencontres</span></span></div>
   </div>
 </section>
 
