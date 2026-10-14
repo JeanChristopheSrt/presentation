@@ -775,6 +775,84 @@
   }
 }
 
+
+
+/* Ajustements demandés : rapprocher DESIGN de l’image et composer le titre voyage sur toute la hauteur mobile */
+@media (max-width:800px){
+  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
+  .design-word-top{order:0!important;margin:0 0 .25vh!important;padding:0!important;line-height:.82!important;}
+  .design-band{order:1!important;margin:0!important;height:68vw!important;min-height:260px!important;}
+  .design-word-bottom{order:2!important;margin:.5vh 0 0!important;padding:0!important;line-height:.82!important;}
+
+  /* Les trois photos restent empilées. Le titre traverse leur hauteur totale. */
+  .travel-band{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:repeat(3,auto)!important;
+    gap:0!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+  .travel-band .travel-photo{
+    display:block!important;
+    width:100%!important;
+    aspect-ratio:4 / 5!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+  .travel-band .travel-photo img{
+    display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;
+  }
+  .travel-band .word{
+    position:absolute!important;inset:0!important;z-index:8!important;
+    width:100%!important;height:100%!important;margin:0!important;padding:0!important;
+    display:block!important;transform:none!important;font-size:initial!important;
+    line-height:1!important;color:transparent!important;text-shadow:none!important;
+    pointer-events:none!important;
+  }
+  .travel-word-desktop{display:none!important;}
+  .travel-word-mobile{
+    position:absolute!important;inset:0!important;display:block!important;
+    width:100%!important;height:100%!important;padding:0!important;margin:0!important;
+    font-size:initial!important;line-height:1!important;letter-spacing:0!important;
+    color:rgba(255,255,255,.86)!important;pointer-events:none!important;
+  }
+  .travel-word-mobile .travel-voyages,
+  .travel-word-mobile .travel-rencontres{
+    position:absolute!important;display:block!important;
+    writing-mode:vertical-rl!important;text-orientation:upright!important;
+    transform:none!important;white-space:nowrap!important;
+    font-family:inherit!important;font-size:clamp(36px,10vw,62px)!important;
+    font-weight:800!important;line-height:1!important;letter-spacing:.02em!important;
+    color:rgba(255,255,255,.78)!important;
+    text-shadow:0 1px 10px rgba(0,0,0,.42)!important;
+  }
+  /* VOYAGES descend depuis le tiers supérieur gauche et se termine près du &. */
+  .travel-word-mobile .travel-voyages{
+    left:6%!important;top:4%!important;right:auto!important;bottom:auto!important;
+    height:43%!important;width:auto!important;text-align:left!important;
+    font-size:clamp(38px,10.5vw,66px)!important;
+    letter-spacing:.08em!important;
+  }
+  /* Le & se place au centre de la deuxième photo (milieu du bandeau complet). */
+  .travel-word-mobile .travel-amp{
+    position:absolute!important;left:50%!important;top:50%!important;
+    transform:translate(-50%,-50%)!important;display:block!important;
+    font-family:inherit!important;font-size:clamp(48px,13vw,82px)!important;
+    font-weight:800!important;line-height:1!important;color:rgba(255,255,255,.9)!important;
+    text-shadow:0 1px 10px rgba(0,0,0,.42)!important;
+  }
+  /* RENCONTRES repart à droite du & et descend vers le tiers inférieur de la troisième photo. */
+  .travel-word-mobile .travel-rencontres{
+    right:6%!important;left:auto!important;top:52%!important;bottom:auto!important;
+    height:38%!important;width:auto!important;text-align:left!important;
+    font-size:clamp(38px,10.5vw,66px)!important;
+    letter-spacing:.02em!important;
+  }
+}
+
 </style>
 </head>
 <body>
