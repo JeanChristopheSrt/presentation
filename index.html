@@ -70,56 +70,123 @@
 .sea-band .word{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:clamp(72px,13vw,180px);color:rgba(244,241,233,.78)}
 @media(max-width:800px){.media-pillar{padding:8vh 18px 6vh}.media-band{height:58vh;min-height:360px}.media-band .word{left:15px;bottom:22px;font-size:clamp(44px,11vw,80px)}.sea-band{grid-template-columns:1fr 1fr}.sea-band .word{left:50%;top:50%;bottom:auto;font-size:clamp(48px,12vw,85px)}}
 
-
-/* Ajustements finaux des trois piliers photo/vidéo */
-.media-band .word{left:2.5%;right:2.5%;bottom:50%;transform:translateY(50%);width:95%;text-align:center;font-size:clamp(100px,19vw,280px);line-height:.78;letter-spacing:-.085em;color:rgba(244,241,233,.9);text-shadow:0 2px 22px rgba(0,0,0,.18)}
-.media-band:after{background:linear-gradient(0deg,rgba(10,10,9,.12),transparent 60%)}
-.media-band.design-band .word{left:4%;right:auto;width:88%;text-align:left;bottom:50%;transform:translateY(50%);font-size:clamp(68px,12vw,170px);line-height:.8;letter-spacing:-.075em;text-shadow:0 2px 24px rgba(0,0,0,.2)}
-.media-band.design-band>img{object-fit:cover;background:transparent}
-.sea-band{background:var(--paper);grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
-.sea-band video{width:100%;height:100%;object-fit:contain;background:var(--paper)}
-.sea-band .word{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:clamp(115px,22vw,300px);line-height:.8;color:rgba(244,241,233,.9);text-shadow:0 2px 22px rgba(0,0,0,.22)}
-@media(max-width:800px){
- .media-band .word{left:2%;right:2%;bottom:50%;transform:translateY(50%);width:96%;font-size:clamp(64px,17vw,130px);text-align:center}
- .media-band.design-band .word{left:5%;right:5%;width:90%;font-size:clamp(48px,12vw,92px);text-align:left}
- .sea-band{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
- .sea-band .word{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);font-size:clamp(70px,18vw,140px)}
+/* MISE EN PAGE DES PILIERS — feuille nettoyée, sans anciennes règles contradictoires */
+.media-pillar{
+  position:relative;
+  isolation:isolate;
+  padding:6vh 7vw;
+  margin:0;
 }
+.media-pillar:before{
+  content:"";position:absolute;z-index:-1;left:7vw;top:0;width:1px;height:5vh;background:#a58a6d;
+}
+.media-pillar + .media-pillar{margin-top:0;}
+.media-band{
+  position:relative;height:68vh;min-height:430px;overflow:hidden;background:#b9ad9b;
+}
+.media-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.media-band .word{
+  position:absolute;z-index:3;left:2%;right:2%;top:50%;bottom:auto;transform:translateY(-50%);
+  width:96%;text-align:center;font-size:clamp(100px,19vw,280px);line-height:.78;
+  letter-spacing:-.085em;font-weight:800;text-transform:uppercase;
+  color:rgba(244,241,233,.9);text-shadow:0 2px 22px rgba(0,0,0,.18);pointer-events:none;
+}
+.media-band:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,.12),transparent 60%);pointer-events:none;}
 
-/* Corrections finales : vidéos intégralement visibles, MER plus espacé, typo Design plus discrète */
+/* Bauhaus : titre blanc, même famille/poids que SPORT et MER, autour de l’image. */
+.design-composition{display:flex;flex-direction:column;align-items:stretch;width:100%;}
+.design-word-top,.design-word-bottom{
+  display:block;width:100%;margin:0;padding:0;text-align:center;
+  font-family:Arial,Helvetica,sans-serif;font-size:clamp(70px,10vw,145px);
+  line-height:.78;letter-spacing:-.085em;font-weight:800;text-transform:uppercase;
+  color:#fff;white-space:nowrap;
+}
+.design-word-top{margin-bottom:1.5vh;}
+.media-band.design-band{
+  order:0;height:clamp(360px,52vw,650px);min-height:0;overflow:hidden;background:transparent;
+}
+.media-band.design-band>img{object-fit:contain!important;object-position:center center;background:transparent;}
+.media-band.design-band:after{display:none;}
+.design-word-bottom{margin-top:1.5vh;}
+
+/* Mer : deux vidéos jointives sur ordinateur et mobile. */
 .media-band.sea-band{
-  height:min(78vh,760px);
-  min-height:420px;
-  overflow:hidden;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  align-items:stretch;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;
+  height:min(78vh,760px);min-height:420px;align-items:stretch;background:var(--paper);
 }
 .media-band.sea-band video{
-  display:block;
-  width:100%;
-  height:100%;
-  min-width:0;
-  min-height:0;
-  object-fit:contain !important;
-  object-position:center center;
-  background:var(--paper);
+  display:block;width:100%;height:100%;min-width:0;min-height:0;object-fit:contain;
+  object-position:center center;background:var(--paper);
 }
 .media-band.sea-band .word{
-  letter-spacing:.08em;
-  font-size:clamp(100px,20vw,270px);
-  color:rgba(244,241,233,.88);
-}
-.media-band.design-band .word{
-  color:rgba(244,241,233,.34);
-  text-shadow:0 1px 10px rgba(0,0,0,.06);
-}
-@media(max-width:800px){
-  .media-band.sea-band{height:62vh;min-height:360px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .media-band.sea-band video{object-fit:contain !important}
-  .media-band.sea-band .word{font-size:clamp(64px,16vw,125px);letter-spacing:.07em}
-  .media-band.design-band .word{color:rgba(244,241,233,.34)}
+  left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);width:100%;
+  text-align:center;font-size:clamp(115px,22vw,300px);line-height:.8;letter-spacing:.08em;
+  color:rgba(244,241,233,.9);text-shadow:0 2px 22px rgba(0,0,0,.22);
 }
 
+/* Voyages : 3 photos, une seule composition typographique superposée. */
+.travel-section{position:relative;padding:6vh 7vw 8vh;isolation:isolate;}
+.travel-section:before{content:"";position:absolute;z-index:-1;left:7vw;top:0;width:1px;height:5vh;background:#a58a6d;}
+.travel-band{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));height:68vh;min-height:430px;overflow:hidden;background:#b9ad9b;}
+.travel-band .travel-photo{position:relative;min-width:0;overflow:hidden;}
+.travel-band .travel-photo+.travel-photo{border-left:2px solid var(--paper);}
+.travel-band .travel-photo img{display:block;width:100%;height:100%;object-fit:cover;}
+.travel-band:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,.14),transparent 55%);pointer-events:none;}
+.travel-band .word{position:absolute;inset:0;z-index:3;pointer-events:none;}
+.travel-word-desktop{position:absolute;left:3%;bottom:7%;font-size:clamp(80px,14vw,190px);font-weight:800;line-height:.78;letter-spacing:-.08em;text-transform:uppercase;color:rgba(244,241,233,.9);text-shadow:0 2px 18px rgba(0,0,0,.18);}
+.travel-word-mobile{display:none;}
+
+@media(max-width:800px){
+  /* Même respiration régulière entre les compositions centrales. */
+  .pillars-intro{padding:6vh 18px 3vh!important;}
+  .media-pillar{padding:4.5vh 18px!important;margin:0!important;}
+  .media-pillar + .media-pillar{margin-top:0!important;}
+  .media-pillar:before{left:18px;height:3vh;}
+  .media-band{height:58vh;min-height:360px;}
+  .media-band .word{left:2%;right:2%;width:96%;font-size:clamp(64px,17vw,130px);}
+
+  /* Le mot DESIGN doit être proche de Bauhaus ; ARCHITECTURE garde la même respiration dessous. */
+  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
+  .design-word-top,.design-word-bottom{font-size:clamp(54px,14vw,92px)!important;line-height:.8!important;letter-spacing:-.085em!important;color:#fff!important;}
+  .design-word-top{margin:0 0 .6vh!important;}
+  .media-band.design-band{height:58vw!important;min-height:250px!important;max-height:360px;}
+  .design-word-bottom{margin:.8vh 0 0!important;}
+
+  /* Les vidéos restent jointives et intégralement visibles. */
+  .media-band.sea-band{height:62vh;min-height:360px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;}
+  .media-band.sea-band video{object-fit:contain!important;}
+  .media-band.sea-band .word{font-size:clamp(64px,16vw,125px);letter-spacing:.07em;}
+
+  /* Sur mobile, les trois photos s’empilent sans espace. Les lettres se lisent de haut en bas. */
+  .travel-section{padding:4.5vh 18px 6vh!important;}
+  .travel-band{display:flex!important;flex-direction:column!important;gap:0!important;height:auto!important;min-height:0!important;overflow:hidden!important;}
+  .travel-band .travel-photo{display:block!important;position:relative!important;width:100%!important;height:auto!important;aspect-ratio:4/5!important;flex:none!important;overflow:hidden!important;}
+  .travel-band .travel-photo+.travel-photo{border-left:0!important;border-top:2px solid var(--paper);}
+  .travel-band .travel-photo img{width:100%!important;height:100%!important;object-fit:cover!important;}
+  .travel-band:after{display:block;}
+  .travel-band .word{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:8!important;}
+  .travel-word-desktop{display:none!important;}
+  .travel-word-mobile{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;color:rgba(255,255,255,.9)!important;}
+  .travel-word-mobile .travel-voyages,
+  .travel-word-mobile .travel-rencontres{
+    position:absolute!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;align-items:center!important;
+    writing-mode:horizontal-tb!important;text-orientation:mixed!important;white-space:normal!important;
+    transform:none!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;
+    font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(50px,18vw,82px)!important;
+    font-weight:800!important;line-height:.82!important;letter-spacing:0!important;
+    color:rgba(255,255,255,.86)!important;text-shadow:0 1px 10px rgba(0,0,0,.42)!important;
+  }
+  .travel-word-mobile .travel-voyages{left:5%!important;top:3%!important;right:auto!important;bottom:auto!important;}
+  .travel-word-mobile .travel-amp{
+    position:absolute!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;
+    transform:translate(-50%,-50%)!important;display:block!important;font-family:Arial,Helvetica,sans-serif!important;
+    font-size:clamp(64px,20vw,100px)!important;font-weight:800!important;line-height:1!important;
+    color:rgba(255,255,255,.92)!important;text-shadow:0 1px 10px rgba(0,0,0,.42)!important;
+  }
+  .travel-word-mobile .travel-rencontres{left:auto!important;right:5%!important;top:51%!important;bottom:auto!important;}
+  .travel-word-mobile .travel-voyages span,
+  .travel-word-mobile .travel-rencontres span{display:block!important;line-height:.82!important;}
+}
 </style>
 </head>
 <body>
@@ -167,7 +234,7 @@
 </section>
 
 <section class="pillars-intro">
-<div><h2>Cinq univers.<br>Une identité.</h2></div>
+<div><div class="who-label">Qui suis-je ?</div><h2>Cinq univers.<br>Une identité.</h2></div>
 </section>
 
 <section class="media-pillar">
@@ -178,9 +245,12 @@
 </section>
 
 <section class="media-pillar">
-  <div class="media-band design-band">
-    <img src="bauhaus.jpg" alt="Design et architecture">
-    <div class="word">Design<br>&amp; architecture</div>
+  <div class="design-composition">
+    <div class="design-word-top">Design</div>
+    <div class="media-band design-band">
+      <img src="bauhaus.png" alt="Composition graphique Bauhaus">
+    </div>
+    <div class="design-word-bottom">Architecture</div>
   </div>
 </section>
 
@@ -197,7 +267,7 @@
     <div class="travel-photo"><img src="voyages-1.jpg" alt="Voyages et rencontres — photo 1"></div>
     <div class="travel-photo"><img src="voyages-2.jpg" alt="Voyages et rencontres — photo 2"></div>
     <div class="travel-photo"><img src="voyages-3.jpg" alt="Voyages et rencontres — photo 3"></div>
-    <div class="word">Voyages<br>&amp; rencontres</div>
+    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile" aria-label="Voyages et rencontres"><span class="travel-voyages" aria-hidden="true"><span>V</span><span>O</span><span>Y</span><span>A</span><span>G</span><span>E</span><span>S</span></span><span class="travel-amp" aria-hidden="true">&amp;</span><span class="travel-rencontres" aria-hidden="true"><span>R</span><span>E</span><span>N</span><span>C</span><span>O</span><span>N</span><span>T</span><span>R</span><span>E</span><span>S</span></span></span></div>
   </div>
 </section>
 
