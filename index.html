@@ -853,6 +853,33 @@
   }
 }
 
+
+
+/* PATCH FINAL — règles prioritaires pour les ajustements mobiles demandés */
+@media (max-width:800px){
+  /* Bauhaus : le mot DESIGN reste proche de l’image, avec une marge équilibrée avec ARCHITECTURE. */
+  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
+  .design-word-top{display:block!important;width:100%!important;text-align:center!important;margin:0 0 .35vh!important;padding:0!important;line-height:.82!important;}
+  .design-band{display:block!important;order:1!important;margin:0!important;height:68vw!important;min-height:260px!important;}
+  .design-word-bottom{display:block!important;width:100%!important;text-align:center!important;margin:.45vh 0 0!important;padding:0!important;line-height:.82!important;}
+  .design-word-top,.design-word-bottom{font-family:inherit!important;font-weight:800!important;text-transform:uppercase!important;color:#fff!important;letter-spacing:-.075em!important;font-size:clamp(28px,8vw,52px)!important;white-space:nowrap!important;}
+
+  /* Les trois photos de voyage forment un seul bandeau vertical ; le titre se superpose à l’ensemble. */
+  .travel-band{position:relative!important;display:flex!important;flex-direction:column!important;gap:0!important;height:auto!important;min-height:0!important;overflow:hidden!important;}
+  .travel-band .travel-photo{position:relative!important;display:block!important;width:100%!important;height:auto!important;aspect-ratio:4/5!important;flex:none!important;overflow:hidden!important;}
+  .travel-band .travel-photo img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;}
+  .travel-band .word{position:absolute!important;inset:0!important;z-index:8!important;display:block!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important;transform:none!important;font-size:0!important;line-height:1!important;color:transparent!important;text-shadow:none!important;pointer-events:none!important;}
+  .travel-word-desktop{display:none!important;}
+  .travel-word-mobile{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important;font-size:initial!important;line-height:1!important;letter-spacing:0!important;color:rgba(255,255,255,.85)!important;pointer-events:none!important;}
+  .travel-word-mobile .travel-voyages,
+  .travel-word-mobile .travel-rencontres{position:absolute!important;display:block!important;writing-mode:vertical-rl!important;text-orientation:upright!important;transform:none!important;white-space:nowrap!important;font-family:inherit!important;font-size:clamp(42px,11vw,62px)!important;font-weight:800!important;line-height:1!important;letter-spacing:.01em!important;color:rgba(255,255,255,.8)!important;text-shadow:0 1px 10px rgba(0,0,0,.42)!important;}
+  /* VOYAGES : première lettre en haut, progression normale vers le centre. */
+  .travel-word-mobile .travel-voyages{left:6%!important;right:auto!important;top:4%!important;bottom:auto!important;width:auto!important;height:46%!important;text-align:left!important;}
+  /* Le & est au centre de la deuxième photo, soit au milieu des trois images. */
+  .travel-word-mobile .travel-amp{position:absolute!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;display:block!important;font-family:inherit!important;font-size:clamp(48px,13vw,78px)!important;font-weight:800!important;line-height:1!important;color:rgba(255,255,255,.92)!important;text-shadow:0 1px 10px rgba(0,0,0,.42)!important;}
+  /* RENCONTRES : démarre à droite du & et descend vers le tiers inférieur de la troisième photo. */
+  .travel-word-mobile .travel-rencontres{left:auto!important;right:6%!important;top:52%!important;bottom:auto!important;width:auto!important;height:43%!important;text-align:left!important;font-size:clamp(42px,11vw,62px)!important;}
+}
 </style>
 </head>
 <body>
