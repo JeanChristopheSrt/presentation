@@ -192,8 +192,8 @@
 /* Ajustements graphiques validés — règles finales cohérentes ordinateur/mobile */
 /* « Qui suis-je ? » : libellé éditorial et titre conservés sur tous les écrans. */
 .pillars-intro{padding:8vh 8vw 2vh;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;position:relative;isolation:isolate}
-.pillars-intro .who-label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 24px;color:#5f5a52}
-.pillars-intro h2{font-size:clamp(45px,7vw,95px);line-height:.86;letter-spacing:-.06em;margin:0}
+.pillars-intro .who-label{display:block;font-family:Arial,Helvetica,sans-serif;font-size:clamp(45px,7vw,95px);line-height:.86;letter-spacing:-.06em;font-weight:800;text-transform:none;margin:0 0 24px;color:var(--ink)}
+.pillars-intro h2{font-family:Arial,Helvetica,sans-serif;font-size:clamp(45px,7vw,95px);line-height:.86;letter-spacing:-.06em;font-weight:800;margin:0}
 .pillars-intro:before{display:none}
 /* Alternance géométrique discrète : cercle, quart de cercle, demi-cercle. */
 .mission-line:after{border-radius:50%;}
@@ -208,9 +208,12 @@
 .media-band.sea-band .word{text-shadow:none!important;}
 @media(max-width:800px){
   .pillars-intro{padding:8vh 24px 2vh!important;display:block!important;}
-  .pillars-intro .who-label{font-size:10px!important;letter-spacing:.14em!important;margin:0 0 18px!important;}
+  .pillars-intro .who-label{font-size:clamp(48px,13vw,76px)!important;line-height:.9!important;letter-spacing:-.06em!important;margin:0 0 18px!important;}
   .pillars-intro h2{font-size:clamp(48px,13vw,76px)!important;line-height:.9!important;letter-spacing:-.06em!important;}
   .pillars-intro:after{right:8px;top:3vh;width:48px;height:48px;border-radius:0 0 0 100%;}
+  .literature-section:after{display:none!important;}
+  .literature-word{position:relative;padding-bottom:36px;}
+  .literature-word:after{content:"";position:absolute;left:0;bottom:0;width:1px;height:28px;background:#a58a6d;}
   .media-band.sea-band{height:62vh;min-height:360px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;}
   .media-band.sea-band video{object-fit:cover!important;object-position:center center;}
 }
