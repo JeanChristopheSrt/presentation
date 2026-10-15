@@ -70,815 +70,122 @@
 .sea-band .word{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:clamp(72px,13vw,180px);color:rgba(244,241,233,.78)}
 @media(max-width:800px){.media-pillar{padding:8vh 18px 6vh}.media-band{height:58vh;min-height:360px}.media-band .word{left:15px;bottom:22px;font-size:clamp(44px,11vw,80px)}.sea-band{grid-template-columns:1fr 1fr}.sea-band .word{left:50%;top:50%;bottom:auto;font-size:clamp(48px,12vw,85px)}}
 
-
-/* Ajustements finaux des trois piliers photo/vidéo */
-.media-band .word{left:2.5%;right:2.5%;bottom:50%;transform:translateY(50%);width:95%;text-align:center;font-size:clamp(100px,19vw,280px);line-height:.78;letter-spacing:-.085em;color:rgba(244,241,233,.9);text-shadow:0 2px 22px rgba(0,0,0,.18)}
-.media-band:after{background:linear-gradient(0deg,rgba(10,10,9,.12),transparent 60%)}
-.media-band.design-band .word{left:4%;right:auto;width:88%;text-align:left;bottom:50%;transform:translateY(50%);font-size:clamp(68px,12vw,170px);line-height:.8;letter-spacing:-.075em;text-shadow:0 2px 24px rgba(0,0,0,.2)}
-.media-band.design-band>img{object-fit:cover;background:transparent}
-.sea-band{background:var(--paper);grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
-.sea-band video{width:100%;height:100%;object-fit:contain;background:var(--paper)}
-.sea-band .word{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:clamp(115px,22vw,300px);line-height:.8;color:rgba(244,241,233,.9);text-shadow:0 2px 22px rgba(0,0,0,.22)}
-@media(max-width:800px){
- .media-band .word{left:2%;right:2%;bottom:50%;transform:translateY(50%);width:96%;font-size:clamp(64px,17vw,130px);text-align:center}
- .media-band.design-band .word{left:5%;right:5%;width:90%;font-size:clamp(48px,12vw,92px);text-align:left}
- .sea-band{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
- .sea-band .word{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);font-size:clamp(70px,18vw,140px)}
+/* MISE EN PAGE DES PILIERS — feuille nettoyée, sans anciennes règles contradictoires */
+.media-pillar{
+  position:relative;
+  isolation:isolate;
+  padding:6vh 7vw;
+  margin:0;
 }
+.media-pillar:before{
+  content:"";position:absolute;z-index:-1;left:7vw;top:0;width:1px;height:5vh;background:#a58a6d;
+}
+.media-pillar + .media-pillar{margin-top:0;}
+.media-band{
+  position:relative;height:68vh;min-height:430px;overflow:hidden;background:#b9ad9b;
+}
+.media-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.media-band .word{
+  position:absolute;z-index:3;left:2%;right:2%;top:50%;bottom:auto;transform:translateY(-50%);
+  width:96%;text-align:center;font-size:clamp(100px,19vw,280px);line-height:.78;
+  letter-spacing:-.085em;font-weight:800;text-transform:uppercase;
+  color:rgba(244,241,233,.9);text-shadow:0 2px 22px rgba(0,0,0,.18);pointer-events:none;
+}
+.media-band:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,.12),transparent 60%);pointer-events:none;}
 
-/* Corrections finales : vidéos intégralement visibles, MER plus espacé, typo Design plus discrète */
+/* Bauhaus : titre blanc, même famille/poids que SPORT et MER, autour de l’image. */
+.design-composition{display:flex;flex-direction:column;align-items:stretch;width:100%;}
+.design-word-top,.design-word-bottom{
+  display:block;width:100%;margin:0;padding:0;text-align:center;
+  font-family:Arial,Helvetica,sans-serif;font-size:clamp(70px,10vw,145px);
+  line-height:.78;letter-spacing:-.085em;font-weight:800;text-transform:uppercase;
+  color:#fff;white-space:nowrap;
+}
+.design-word-top{margin-bottom:1.5vh;}
+.media-band.design-band{
+  order:0;height:clamp(360px,52vw,650px);min-height:0;overflow:hidden;background:transparent;
+}
+.media-band.design-band>img{object-fit:contain!important;object-position:center center;background:transparent;}
+.media-band.design-band:after{display:none;}
+.design-word-bottom{margin-top:1.5vh;}
+
+/* Mer : deux vidéos jointives sur ordinateur et mobile. */
 .media-band.sea-band{
-  height:min(78vh,760px);
-  min-height:420px;
-  overflow:hidden;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  align-items:stretch;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;
+  height:min(78vh,760px);min-height:420px;align-items:stretch;background:var(--paper);
 }
 .media-band.sea-band video{
-  display:block;
-  width:100%;
-  height:100%;
-  min-width:0;
-  min-height:0;
-  object-fit:contain !important;
-  object-position:center center;
-  background:var(--paper);
+  display:block;width:100%;height:100%;min-width:0;min-height:0;object-fit:contain;
+  object-position:center center;background:var(--paper);
 }
 .media-band.sea-band .word{
-  letter-spacing:.08em;
-  font-size:clamp(100px,20vw,270px);
-  color:rgba(244,241,233,.88);
-}
-.media-band.design-band .word{
-  color:rgba(244,241,233,.34);
-  text-shadow:0 1px 10px rgba(0,0,0,.06);
-}
-@media(max-width:800px){
-  .media-band.sea-band{height:62vh;min-height:360px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .media-band.sea-band video{object-fit:contain !important}
-  .media-band.sea-band .word{font-size:clamp(64px,16vw,125px);letter-spacing:.07em}
-  .media-band.design-band .word{color:rgba(244,241,233,.34)}
+  left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);width:100%;
+  text-align:center;font-size:clamp(115px,22vw,300px);line-height:.8;letter-spacing:.08em;
+  color:rgba(244,241,233,.9);text-shadow:0 2px 22px rgba(0,0,0,.22);
 }
 
-
-/* Dernière finition : composition Bauhaus sur fond transparent et diptyque mer resserré */
-.design-composition{width:100%;}
-.media-band.design-band{
-  height:clamp(360px,62vw,760px);
-  min-height:0;
-  background:var(--paper);
-  overflow:hidden;
-}
-.media-band.design-band>img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:contain !important;object-position:center center;
-  background:transparent;
-}
-.media-band.design-band:after{display:none;}
-.design-signature{
-  width:100%;padding:14px 0 0;
-  color:#fff;text-align:center;
-  font-size:clamp(25px,5.2vw,70px);
-  line-height:.95;font-weight:700;
-  letter-spacing:-.045em;text-transform:uppercase;
-}
-.media-band.sea-band{
-  gap:0 !important;
-  column-gap:0 !important;
-  box-shadow:none !important;
-  background:var(--paper);
-}
-.media-band.sea-band:after{display:none !important;}
-.media-band.sea-band video{
-  margin:0 !important;border:0 !important;box-shadow:none !important;
-  object-fit:contain !important;
-}
-@media(max-width:800px){
-  .media-band.design-band{height:58vw;min-height:300px;}
-  .design-signature{font-size:clamp(23px,6vw,44px);padding-top:12px;}
-  .media-band.sea-band{gap:0 !important;column-gap:0 !important;}
-}
-
-
-/* Ajustements structurels : introduction, composition Bauhaus et photos mobiles */
-.pillars-intro .who-label{
-  margin:0 0 22px;
-  font-size:clamp(12px,1.1vw,15px);
-  line-height:1;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  font-weight:600;
-}
-.design-composition{width:100%;}
-.media-band.design-band{
-  height:clamp(320px,52vw,650px);
-  min-height:0;
-  overflow:visible;
-  background:transparent;
-}
-.media-band.design-band>img{
-  object-fit:contain !important;
-  object-position:center bottom;
-}
-.design-signature{
-  position:relative;
-  z-index:2;
-  width:100%;
-  margin-top:-2px;
-  padding:8px 0 0;
-  border-top:1px solid rgba(255,255,255,.9);
-  color:#fff;
-  text-align:center;
-  font-size:clamp(24px,4.2vw,58px);
-  line-height:1;
-  font-weight:700;
-  letter-spacing:-.035em;
-  text-transform:uppercase;
-}
-/* Sur téléphone, chaque photo de voyage conserve ses proportions au lieu d'être comprimée en trois colonnes. */
-@media(max-width:800px){
-  .pillars-intro .who-label{margin-bottom:18px;font-size:11px;}
-  .media-band.design-band{height:72vw;min-height:260px;}
-  .design-signature{margin-top:0;padding-top:10px;font-size:clamp(22px,6vw,36px);}
-  .travel-section{padding:7vh 18px 6vh;}
-  .travel-band{
-    display:flex;
-    flex-direction:column;
-    height:auto;
-    min-height:0;
-    overflow:visible;
-    gap:12px;
-    background:transparent;
-  }
-  .travel-band .travel-photo{
-    width:100%;
-    height:auto;
-    aspect-ratio:4 / 5;
-    overflow:hidden;
-    flex:none;
-  }
-  .travel-band .travel-photo+.travel-photo{border-left:0;}
-  .travel-band img{width:100%;height:100%;object-fit:cover;}
-  .travel-band:after{display:none;}
-  .travel-band .word{
-    position:relative;
-    left:auto;bottom:auto;
-    order:-1;
-    display:block;
-    font-size:clamp(44px,11vw,78px);
-    line-height:.82;
-    margin:0 0 10px;
-    color:var(--ink);
-    text-shadow:none;
-  }
-}
-
-
-
-/* Ajustements demandés : hiérarchie de l'introduction et adaptations desktop/mobile */
-.pillars-intro .who-label{
-  display:block;
-  margin:0 0 18px;
-  font-size:clamp(28px,5.2vw,72px);
-  line-height:.88;
-  letter-spacing:-.055em;
-  text-transform:none;
-  font-weight:800;
-}
-.pillars-intro h2{
-  font-size:clamp(48px,7vw,96px);
-  line-height:.88;
-}
-/* Le titre doit occuper presque toute la largeur de la composition Bauhaus. */
-.design-signature{
-  width:100%;
-  margin-top:-1px;
-  padding:8px 0 0;
-  border-top:1px solid rgba(255,255,255,.95);
-  font-size:clamp(26px,5.6vw,78px);
-  line-height:.95;
-  letter-spacing:-.055em;
-  white-space:nowrap;
-  text-align:justify;
-  text-align-last:justify;
-}
-/* Sur ordinateur, les deux vidéos se rejoignent visuellement sans bande centrale. */
-@media(min-width:801px){
-  .media-band.sea-band{gap:0!important;column-gap:0!important;grid-template-columns:1fr 1fr;}
-  .media-band.sea-band video{width:100%;height:100%;object-fit:cover!important;object-position:center center;}
-}
-/* Mobile : garder le graphisme photo de la version web, avec le titre en vertical. */
-@media(max-width:800px){
-  .pillars-intro .who-label{font-size:clamp(30px,8vw,46px);margin-bottom:16px;}
-  .pillars-intro h2{font-size:clamp(46px,11vw,68px);}
-  .design-signature{font-size:clamp(20px,5.8vw,34px);letter-spacing:-.045em;white-space:normal;text-align:center;text-align-last:center;}
-  .travel-band{position:relative;}
-  .travel-band .word{
-    position:absolute;
-    z-index:3;
-    left:12px;
-    top:50%;
-    bottom:auto;
-    transform:translateY(-50%);
-    writing-mode:vertical-rl;
-    text-orientation:mixed;
-    order:initial;
-    margin:0;
-    padding:0;
-    font-size:clamp(32px,8vw,54px);
-    line-height:.9;
-    letter-spacing:-.055em;
-    color:rgba(244,241,233,.9);
-    text-shadow:0 1px 12px rgba(0,0,0,.3);
-    text-align:left;
-  }
-  .travel-band .travel-photo{aspect-ratio:4 / 5;}
-}
-
-
-
-/* Réglages précis demandés : hiérarchie, Bauhaus et titre mobile des voyages */
-.pillars-intro .who-label{
-  font-size:clamp(48px,7vw,96px) !important;
-  line-height:.88;
-  letter-spacing:-.06em;
-  font-weight:800;
-  text-transform:none;
-  margin-bottom:18px;
-}
-.pillars-intro h2{font-size:clamp(48px,7vw,96px) !important;line-height:.88;}
-/* Rapprocher les deux compositions photo sans modifier leurs dimensions. */
-.media-pillar + .media-pillar{margin-top:-3.5vh;}
-/* Le titre Bauhaus reste écrit normalement : on augmente sa taille, sans étirer les espaces. */
-.design-signature{
-  width:100%;
-  padding:8px 0 0;
-  border-top:1px solid rgba(255,255,255,.95);
-  text-align:center !important;
-  text-align-last:auto !important;
-  white-space:nowrap;
-  letter-spacing:-.065em !important;
-  font-size:clamp(25px,5vw,68px) !important;
-  line-height:.98;
-  transform:none;
-}
+/* Voyages : 3 photos, une seule composition typographique superposée. */
+.travel-section{position:relative;padding:6vh 7vw 8vh;isolation:isolate;}
+.travel-section:before{content:"";position:absolute;z-index:-1;left:7vw;top:0;width:1px;height:5vh;background:#a58a6d;}
+.travel-band{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));height:68vh;min-height:430px;overflow:hidden;background:#b9ad9b;}
+.travel-band .travel-photo{position:relative;min-width:0;overflow:hidden;}
+.travel-band .travel-photo+.travel-photo{border-left:2px solid var(--paper);}
+.travel-band .travel-photo img{display:block;width:100%;height:100%;object-fit:cover;}
+.travel-band:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,.14),transparent 55%);pointer-events:none;}
+.travel-band .word{position:absolute;inset:0;z-index:3;pointer-events:none;}
+.travel-word-desktop{position:absolute;left:3%;bottom:7%;font-size:clamp(80px,14vw,190px);font-weight:800;line-height:.78;letter-spacing:-.08em;text-transform:uppercase;color:rgba(244,241,233,.9);text-shadow:0 2px 18px rgba(0,0,0,.18);}
 .travel-word-mobile{display:none;}
-.travel-word-desktop{display:inline;}
+
 @media(max-width:800px){
-  .pillars-intro .who-label{font-size:clamp(46px,11vw,68px) !important;margin-bottom:16px;}
-  .pillars-intro h2{font-size:clamp(46px,11vw,68px) !important;}
-  .media-pillar + .media-pillar{margin-top:-1.5vh;}
-  .design-signature{font-size:clamp(19px,5.2vw,34px) !important;white-space:normal;}
-  .travel-word-desktop{display:none;}
-  .travel-word-mobile{display:inline;}
-  .travel-band .word{
-    position:absolute !important;
-    z-index:3;
-    left:10px !important;
-    top:14px !important;
-    bottom:14px !important;
-    transform:none !important;
-    display:flex !important;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:center;
-    width:34px;
-    margin:0 !important;
-    padding:0;
-    font-size:clamp(14px,4.2vw,24px) !important;
-    line-height:1 !important;
-    letter-spacing:0 !important;
-    color:rgba(244,241,233,.96) !important;
-    text-shadow:0 1px 8px rgba(0,0,0,.45) !important;
-    text-align:center;
-  }
-  .travel-band .travel-photo{aspect-ratio:4 / 5;}
-}
-
-
-
-/* Finition structurelle finale : hiérarchie, respiration et titre mobile sur trois photos */
-.pillars-intro{padding-top:7vh;padding-bottom:1vh;}
-.pillars-intro .who-label{
-  font-size:clamp(62px,8.5vw,116px)!important;
-  line-height:.82!important;
-  letter-spacing:-.075em!important;
-  font-weight:800!important;
-  text-transform:none!important;
-  margin:0 0 16px!important;
-  max-width:100%;
-}
-.pillars-intro h2{
-  font-size:clamp(62px,8.5vw,116px)!important;
-  line-height:.82!important;
-  letter-spacing:-.075em!important;
-  font-weight:800!important;
-}
-/* Rapproche les compositions sans modifier les images elles-mêmes. */
-.media-pillar{padding:4vh 7vw 2vh;}
-.media-pillar + .media-pillar{margin-top:-2.5vh;}
-@media(max-width:800px){
-  .pillars-intro{padding-top:5vh;padding-bottom:0;}
-  .pillars-intro .who-label{font-size:clamp(42px,11vw,68px)!important;line-height:.86!important;margin-bottom:12px!important;}
-  .pillars-intro h2{font-size:clamp(42px,11vw,68px)!important;line-height:.86!important;}
-  .media-pillar{padding:2vh 18px 1vh;}
-  .media-pillar + .media-pillar{margin-top:-.5vh;}
-  .travel-section{padding:1vh 18px 4vh!important;}
-  .travel-band{position:relative;gap:8px!important;}
-  /* Le titre traverse verticalement les trois photos, de la première à la troisième. */
-  .travel-band .word{
-    position:absolute!important;
-    z-index:4!important;
-    left:8px!important;
-    top:8px!important;
-    bottom:8px!important;
-    right:auto!important;
-    width:30px!important;
-    display:block!important;
-    transform:none!important;
-    margin:0!important;
-    padding:0!important;
-    font-size:1px!important;
-    line-height:1!important;
-    color:transparent!important;
-    text-shadow:none!important;
-  }
-  .travel-word-mobile{
-    position:absolute;
-    inset:0 auto 0 0;
-    display:flex!important;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:center;
-    width:30px;
-    padding:2px 0;
-    color:rgba(244,241,233,.97);
-    font-size:clamp(13px,3.5vw,19px);
-    font-weight:800;
-    line-height:1;
-    letter-spacing:0;
-    text-shadow:0 1px 8px rgba(0,0,0,.55);
-  }
-  .travel-word-mobile span{display:block;flex:0 0 auto;}
-  .travel-word-desktop{display:none!important;}
-}
-
-
-
-/* Réglage final : rythme cohérent entre les compositions, desktop et mobile */
-@media (min-width:801px){
-  .media-pillar{
-    padding:3.5vh 7vw !important;
-    margin:0 !important;
-  }
-  .media-pillar + .media-pillar{margin-top:0 !important;}
-  .travel-section{padding:3.5vh 7vw 4vh !important;}
-  .travel-band{gap:0 !important;}
-}
-
-@media (max-width:800px){
-  /* Même respiration verticale d'un univers au suivant */
-  .media-pillar{
-    padding:2.2vh 18px !important;
-    margin:0 !important;
-  }
-  .media-pillar + .media-pillar{margin-top:0 !important;}
-  .travel-section{padding:2.2vh 18px 3vh !important;}
-  .travel-band{
-    position:relative !important;
-    display:flex !important;
-    flex-direction:column !important;
-    gap:10px !important;
-    height:auto !important;
-    min-height:0 !important;
-    overflow:visible !important;
-  }
-  .travel-band .travel-photo{
-    position:relative !important;
-    width:100% !important;
-    height:auto !important;
-    aspect-ratio:4 / 5 !important;
-    flex:none !important;
-    overflow:hidden !important;
-  }
-  .travel-band .travel-photo + .travel-photo{border-left:0 !important;}
-  .travel-band .travel-photo img{
-    display:block !important;
-    width:100% !important;
-    height:100% !important;
-    object-fit:cover !important;
-  }
-  .travel-band:after{display:none !important;}
-
-  /* Un seul titre vertical continu : de la première à la troisième photo */
-  .travel-band .word{
-    position:absolute !important;
-    z-index:8 !important;
-    left:7px !important;
-    top:0 !important;
-    right:auto !important;
-    bottom:0 !important;
-    width:30px !important;
-    height:auto !important;
-    display:block !important;
-    margin:0 !important;
-    padding:0 !important;
-    transform:none !important;
-    font-size:0 !important;
-    line-height:1 !important;
-    color:transparent !important;
-    text-shadow:none !important;
-    pointer-events:none !important;
-  }
-  .travel-word-desktop{display:none !important;}
-  .travel-word-mobile{
-    position:absolute !important;
-    inset:0 !important;
-    width:100% !important;
-    height:100% !important;
-    display:flex !important;
-    flex-direction:column !important;
-    justify-content:space-around !important;
-    align-items:center !important;
-    padding:12px 0 !important;
-    color:rgba(244,241,233,.98) !important;
-    font-size:clamp(13px,3.8vw,18px) !important;
-    font-weight:800 !important;
-    line-height:1 !important;
-    letter-spacing:0 !important;
-    text-shadow:0 1px 7px rgba(0,0,0,.65) !important;
-    writing-mode:horizontal-tb !important;
-  }
-  .travel-word-mobile span{
-    display:block !important;
-    flex:0 0 auto !important;
-    color:rgba(244,241,233,.98) !important;
-  }
-}
-
-
-
-/* Harmonisation finale : le rythme des sections centrales reprend la respiration des parties haute et basse. */
-@media (min-width:801px){
-  .media-pillar{
-    padding:5vh 7vw !important;
-    margin:0 !important;
-  }
-  .media-pillar + .media-pillar{margin-top:0 !important;}
-  .travel-section{padding:5vh 7vw !important;}
-  .travel-band{gap:0 !important;}
-}
-@media (max-width:800px){
-  .media-pillar{
-    padding:3vh 18px !important;
-    margin:0 !important;
-  }
-  .media-pillar + .media-pillar{margin-top:0 !important;}
-  .travel-section{padding:3vh 18px !important;}
-  .travel-band{
-    position:relative !important;
-    display:flex !important;
-    flex-direction:column !important;
-    gap:10px !important;
-    height:auto !important;
-    min-height:0 !important;
-    overflow:visible !important;
-  }
-  .travel-band .travel-photo{
-    position:relative !important;
-    width:100% !important;
-    height:auto !important;
-    aspect-ratio:4 / 5 !important;
-    flex:none !important;
-    overflow:hidden !important;
-  }
-  .travel-band .travel-photo + .travel-photo{border-left:0 !important;}
-  .travel-band .travel-photo img{width:100% !important;height:100% !important;object-fit:cover !important;}
-  .travel-band:after{display:none !important;}
-  /* Deux colonnes typographiques, une par mot, superposées à la série complète des trois photos. */
-  .travel-band .word{
-    position:absolute !important;
-    z-index:8 !important;
-    left:0 !important;top:0 !important;right:0 !important;bottom:0 !important;
-    width:100% !important;height:100% !important;
-    display:block !important;
-    margin:0 !important;padding:0 !important;
-    transform:none !important;
-    font-size:0 !important;line-height:1 !important;
-    color:transparent !important;text-shadow:none !important;
-    pointer-events:none !important;
-  }
-  .travel-word-desktop{display:none !important;}
-  .travel-word-mobile{
-    position:absolute !important;inset:0 !important;
-    display:grid !important;
-    grid-template-columns:1fr 1.15fr !important;
-    align-items:center !important;
-    justify-items:center !important;
-    gap:8px !important;
-    width:100% !important;height:100% !important;
-    padding:18px 12px !important;
-    color:rgba(244,241,233,.98) !important;
-    font-size:clamp(24px,7.2vw,42px) !important;
-    font-weight:800 !important;line-height:1 !important;letter-spacing:-.04em !important;
-    text-shadow:0 1px 8px rgba(0,0,0,.65) !important;
-    writing-mode:horizontal-tb !important;
-  }
-  .travel-word-mobile .travel-word-col{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    justify-content:center !important;
-    gap:3px !important;
-    min-width:0 !important;
-  }
-  .travel-word-mobile .travel-word-col > span{
-    display:block !important;flex:0 0 auto !important;
-    color:rgba(244,241,233,.98) !important;
-    font-size:inherit !important;line-height:.92 !important;
-    letter-spacing:0 !important;
-  }
-}
-
-
-
-/* Ajustement éditorial final — espaces réguliers et titres de compositions */
-@media (min-width:801px){
-  .pillars-intro{padding-bottom:3.5vh !important;}
-  .media-pillar{padding:3.5vh 7vw !important;margin:0 !important;}
-  .media-pillar + .media-pillar{margin-top:0 !important;}
-  .travel-section{padding:3.5vh 7vw !important;}
-  .travel-band{gap:0 !important;}
-  .design-composition{display:flex;flex-direction:column;align-items:stretch;}
-  .design-band{order:2;}
-  .design-signature{order:1;border:0!important;padding:0!important;margin:0 0 1.2vh!important;display:flex;flex-direction:column;align-items:center;gap:0;white-space:normal!important;text-align:center!important;line-height:.8!important;}
-  .design-signature .design-word-top,.design-signature .design-word-bottom{display:block;width:100%;font-size:clamp(54px,10vw,145px);font-weight:800;letter-spacing:-.075em;line-height:.82;color:#fff;}
-  .design-signature .design-word-bottom{margin-top:1vh;}
-}
-@media (max-width:800px){
-  /* Le même rythme de respiration pour tous les piliers sur mobile. */
-  .pillars-intro{padding-bottom:2.5vh!important;}
-  .media-pillar{padding:2.5vh 18px!important;margin:0!important;}
-  .media-pillar + .media-pillar{margin-top:0!important;}
-  .travel-section{padding:2.5vh 18px!important;}
-  .design-composition{display:flex;flex-direction:column;align-items:stretch;}
-  .design-band{order:2;height:58vw!important;min-height:260px!important;}
-  .design-signature{order:1;border:0!important;padding:0!important;margin:0 0 1vh!important;display:flex;flex-direction:column;align-items:center;gap:0;white-space:normal!important;text-align:center!important;line-height:.82!important;}
-  .design-signature .design-word-top,.design-signature .design-word-bottom{display:block;width:100%;font-size:clamp(42px,11vw,78px);font-weight:800;letter-spacing:-.075em;line-height:.82;color:#fff;}
-  .design-signature .design-word-bottom{margin-top:.6vh;}
-  .travel-band{gap:0!important;}
-  .travel-word-mobile{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;padding:0!important;font-size:clamp(30px,9vw,58px)!important;font-weight:800!important;line-height:.82!important;letter-spacing:-.06em!important;color:rgba(244,241,233,.42)!important;text-shadow:none!important;pointer-events:none!important;}
-  .travel-word-mobile .travel-voyages{position:absolute;left:2%;top:14%;width:65%;text-align:center;}
-  .travel-word-mobile .travel-amp{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-size:clamp(40px,12vw,76px)!important;color:rgba(244,241,233,.52)!important;}
-  .travel-word-mobile .travel-rencontres{position:absolute;left:32%;right:1%;bottom:13%;text-align:center;font-size:clamp(26px,7.7vw,48px)!important;}
-  .travel-word-mobile .travel-voyages,.travel-word-mobile .travel-rencontres{display:block!important;color:rgba(244,241,233,.42)!important;white-space:nowrap;}
-}
-
-
-
-/* Corrections ciblées : rythme homogène des piliers et titre mobile lisible */
-@media (min-width:801px){
-  /* Un espacement identique entre chaque composition, sans marges négatives. */
-  .pillars-intro{padding-bottom:4vh!important;}
-  .media-pillar{padding:4vh 7vw!important;margin:0!important;}
-  .media-pillar + .media-pillar{margin-top:0!important;}
-  .travel-section{padding:4vh 7vw!important;margin:0!important;}
-  .travel-band{gap:0!important;}
-  /* Design / Architecture : deux lignes normales, centrées, sans filet ni espacement forcé. */
-  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;}
-  .design-signature{order:0!important;border:0!important;padding:0!important;margin:0 0 1.2vh!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:0!important;white-space:normal!important;text-align:center!important;line-height:.82!important;}
-  .design-band{order:1!important;}
-  .design-signature .design-word-top,.design-signature .design-word-bottom{display:block!important;width:100%!important;font-size:clamp(54px,10vw,145px)!important;font-weight:800!important;letter-spacing:-.075em!important;line-height:.82!important;color:#fff!important;}
-  .design-signature .design-word-bottom{margin-top:.8vh!important;}
-}
-@media (max-width:800px){
-  /* Le même principe de respiration, adapté à la largeur du téléphone. */
-  .pillars-intro{padding-bottom:2.5vh!important;}
-  .media-pillar{padding:2.5vh 18px!important;margin:0!important;}
-  .media-pillar + .media-pillar{margin-top:0!important;}
-  .travel-section{padding:2.5vh 18px!important;margin:0!important;}
-  .travel-band{position:relative!important;display:flex!important;flex-direction:column!important;gap:0!important;height:auto!important;min-height:0!important;overflow:visible!important;}
-  .travel-band .travel-photo{position:relative!important;width:100%!important;height:auto!important;aspect-ratio:4/5!important;flex:none!important;overflow:hidden!important;}
-  .travel-band .travel-photo + .travel-photo{border-left:0!important;}
-  .travel-band .travel-photo img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;}
-  .travel-band:after{display:none!important;}
-  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;}
-  .design-signature{order:0!important;border:0!important;padding:0!important;margin:0 0 1vh!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:0!important;white-space:normal!important;text-align:center!important;line-height:.82!important;}
-  .design-band{order:1!important;height:58vw!important;min-height:260px!important;}
-  .design-signature .design-word-top,.design-signature .design-word-bottom{display:block!important;width:100%!important;font-size:clamp(42px,11vw,78px)!important;font-weight:800!important;letter-spacing:-.075em!important;line-height:.82!important;color:#fff!important;}
-  .design-signature .design-word-bottom{margin-top:.6vh!important;}
-  /* Texte horizontal et dans le sens de lecture : VOYAGES en haut, & au centre, RENCONTRES en bas. */
-  .travel-band .word{position:absolute!important;z-index:8!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;margin:0!important;padding:0!important;transform:none!important;font-size:0!important;line-height:1!important;color:transparent!important;text-shadow:none!important;pointer-events:none!important;}
-  .travel-word-desktop{display:none!important;}
-  .travel-word-mobile{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;padding:0!important;font-size:clamp(30px,9vw,58px)!important;font-weight:800!important;line-height:.82!important;letter-spacing:-.06em!important;color:rgba(244,241,233,.42)!important;text-shadow:none!important;pointer-events:none!important;writing-mode:horizontal-tb!important;}
-  .travel-word-mobile .travel-voyages{position:absolute!important;left:2%!important;top:14%!important;width:65%!important;text-align:center!important;white-space:nowrap!important;color:rgba(244,241,233,.42)!important;}
-  .travel-word-mobile .travel-amp{position:absolute!important;left:50%!important;top:44%!important;transform:translate(-50%,-50%)!important;font-size:clamp(40px,12vw,76px)!important;color:rgba(244,241,233,.52)!important;}
-  .travel-word-mobile .travel-rencontres{position:absolute!important;left:32%!important;right:1%!important;bottom:13%!important;text-align:center!important;font-size:clamp(26px,7.7vw,48px)!important;white-space:nowrap!important;color:rgba(244,241,233,.42)!important;}
-}
-
-
-
-/* Réglage de finition : respiration cohérente entre les univers */
-@media (min-width:801px){
-  .pillars-intro{padding-bottom:6vh!important;}
-  .media-pillar{padding:7vh 7vw!important;margin:0!important;}
-  .media-pillar + .media-pillar{margin-top:0!important;}
-  .travel-section{padding:7vh 7vw 7vh!important;margin:0!important;}
-  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
-  .design-word-top{order:0!important;display:block!important;width:100%!important;text-align:center!important;margin:0 0 1.2vh!important;padding:0!important;}
-  .design-band{order:1!important;margin:0!important;width:100%!important;}
-  .design-word-bottom{order:2!important;display:block!important;width:100%!important;text-align:center!important;margin:1.2vh 0 0!important;padding:0!important;}
-  .design-word-top,.design-word-bottom{font-size:clamp(54px,10vw,145px)!important;line-height:.82!important;letter-spacing:-.075em!important;white-space:nowrap!important;}
-  .media-band.sea-band{margin:0!important;}
-}
-@media (max-width:800px){
-  .pillars-intro{padding-bottom:4vh!important;}
+  /* Même respiration régulière entre les compositions centrales. */
+  .pillars-intro{padding:6vh 18px 3vh!important;}
   .media-pillar{padding:4.5vh 18px!important;margin:0!important;}
   .media-pillar + .media-pillar{margin-top:0!important;}
-  .travel-section{padding:4.5vh 18px 5vh!important;margin:0!important;}
+  .media-pillar:before{left:18px;height:3vh;}
+  .media-band{height:58vh;min-height:360px;}
+  .media-band .word{left:2%;right:2%;width:96%;font-size:clamp(64px,17vw,130px);}
+
+  /* Le mot DESIGN doit être proche de Bauhaus ; ARCHITECTURE garde la même respiration dessous. */
   .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
-  .design-word-top{order:0!important;margin:0 0 1vh!important;padding:0!important;}
-  .design-band{order:1!important;margin:0!important;height:68vw!important;min-height:260px!important;}
-  .design-word-bottom{order:2!important;margin:1vh 0 0!important;padding:0!important;}
-  .design-word-top,.design-word-bottom{font-size:clamp(28px,8vw,52px)!important;line-height:.86!important;}
-  /* Titre de voyage en colonnes de lettres, sens de lecture vertical conservé. */
-  .travel-band{position:relative!important;}
-  .travel-band .word{position:absolute!important;inset:0!important;z-index:8!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important;transform:none!important;font-size:initial!important;line-height:1!important;letter-spacing:normal!important;color:rgba(244,241,233,.72)!important;text-shadow:0 1px 8px rgba(0,0,0,.32)!important;pointer-events:none!important;}
+  .design-word-top,.design-word-bottom{font-size:clamp(54px,14vw,92px)!important;line-height:.8!important;letter-spacing:-.085em!important;color:#fff!important;}
+  .design-word-top{margin:0 0 .6vh!important;}
+  .media-band.design-band{height:58vw!important;min-height:250px!important;max-height:360px;}
+  .design-word-bottom{margin:.8vh 0 0!important;}
+
+  /* Les vidéos restent jointives et intégralement visibles. */
+  .media-band.sea-band{height:62vh;min-height:360px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;}
+  .media-band.sea-band video{object-fit:contain!important;}
+  .media-band.sea-band .word{font-size:clamp(64px,16vw,125px);letter-spacing:.07em;}
+
+  /* Sur mobile, les trois photos s’empilent sans espace. Les lettres se lisent de haut en bas. */
+  .travel-section{padding:4.5vh 18px 6vh!important;}
+  .travel-band{display:flex!important;flex-direction:column!important;gap:0!important;height:auto!important;min-height:0!important;overflow:hidden!important;}
+  .travel-band .travel-photo{display:block!important;position:relative!important;width:100%!important;height:auto!important;aspect-ratio:4/5!important;flex:none!important;overflow:hidden!important;}
+  .travel-band .travel-photo+.travel-photo{border-left:0!important;border-top:2px solid var(--paper);}
+  .travel-band .travel-photo img{width:100%!important;height:100%!important;object-fit:cover!important;}
+  .travel-band:after{display:block;}
+  .travel-band .word{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:8!important;}
   .travel-word-desktop{display:none!important;}
-  .travel-word-mobile{position:absolute!important;inset:0!important;display:grid!important;grid-template-columns:1fr auto 1fr!important;align-items:center!important;justify-items:center!important;width:100%!important;height:100%!important;gap:0!important;}
-  .travel-word-mobile .travel-voyages,.travel-word-mobile .travel-rencontres{display:block!important;writing-mode:vertical-rl!important;text-orientation:upright!important;white-space:nowrap!important;font-size:clamp(19px,5.8vw,34px)!important;line-height:1!important;letter-spacing:-.045em!important;color:rgba(244,241,233,.74)!important;}
-  .travel-word-mobile .travel-voyages{transform:rotate(180deg)!important;}
-  .travel-word-mobile .travel-amp{display:block!important;align-self:center!important;font-size:clamp(38px,10vw,64px)!important;line-height:1!important;color:rgba(244,241,233,.82)!important;}
-  .travel-word-mobile .travel-rencontres{transform:none!important;}
-  .travel-band .travel-photo{aspect-ratio:4/5!important;}
-}
-
-
-
-/* Finition typographique demandée : même traitement que SPORT et MER */
-.design-word-top,
-.design-word-bottom{
-  font-family:inherit !important;
-  font-weight:800 !important;
-  text-transform:uppercase !important;
-  color:#fff !important;
-  text-shadow:0 1px 12px rgba(0,0,0,.22) !important;
-  text-align:center !important;
-  width:100% !important;
-  letter-spacing:-.075em !important;
-  line-height:.82 !important;
-  white-space:nowrap !important;
-}
-@media (min-width:801px){
-  .design-composition{width:100% !important;align-items:stretch !important;}
-  .design-word-top,.design-word-bottom{font-size:clamp(54px,10vw,145px) !important;}
-  .design-word-top{margin:0 0 1.2vh !important;}
-  .design-word-bottom{margin:1.2vh 0 0 !important;}
-}
-@media (max-width:800px){
-  .design-word-top,.design-word-bottom{font-size:clamp(28px,8vw,52px) !important;}
-  .design-word-top{margin:0 0 1vh !important;}
-  .design-word-bottom{margin:1vh 0 0 !important;}
-  /* Lettres verticales dans le sens normal : première lettre en haut, dernière en bas. */
-  .travel-word-mobile{
-    display:grid !important;
-    grid-template-columns:1fr auto 1fr !important;
-    align-items:center !important;
-    justify-items:center !important;
-    gap:0 !important;
-    padding:0 3px !important;
-    color:#fff !important;
-  }
+  .travel-word-mobile{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;color:rgba(255,255,255,.9)!important;}
   .travel-word-mobile .travel-voyages,
   .travel-word-mobile .travel-rencontres{
-    display:block !important;
-    writing-mode:vertical-rl !important;
-    text-orientation:upright !important;
-    transform:none !important;
-    white-space:nowrap !important;
-    font-family:inherit !important;
-    font-size:clamp(24px,7.4vw,48px) !important;
-    font-weight:800 !important;
-    line-height:1 !important;
-    letter-spacing:-.04em !important;
-    color:rgba(255,255,255,.82) !important;
-    text-shadow:0 1px 10px rgba(0,0,0,.4) !important;
+    position:absolute!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;align-items:center!important;
+    writing-mode:horizontal-tb!important;text-orientation:mixed!important;white-space:normal!important;
+    transform:none!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;
+    font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(50px,18vw,82px)!important;
+    font-weight:800!important;line-height:.82!important;letter-spacing:0!important;
+    color:rgba(255,255,255,.86)!important;text-shadow:0 1px 10px rgba(0,0,0,.42)!important;
   }
+  .travel-word-mobile .travel-voyages{left:5%!important;top:3%!important;right:auto!important;bottom:auto!important;}
   .travel-word-mobile .travel-amp{
-    display:block !important;
-    align-self:center !important;
-    font-family:inherit !important;
-    font-size:clamp(38px,10vw,64px) !important;
-    line-height:1 !important;
-    color:rgba(255,255,255,.9) !important;
-    text-shadow:0 1px 10px rgba(0,0,0,.4) !important;
+    position:absolute!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;
+    transform:translate(-50%,-50%)!important;display:block!important;font-family:Arial,Helvetica,sans-serif!important;
+    font-size:clamp(64px,20vw,100px)!important;font-weight:800!important;line-height:1!important;
+    color:rgba(255,255,255,.92)!important;text-shadow:0 1px 10px rgba(0,0,0,.42)!important;
   }
-}
-
-
-
-/* Ajustements demandés : rapprocher DESIGN de l’image et composer le titre voyage sur toute la hauteur mobile */
-@media (max-width:800px){
-  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
-  .design-word-top{order:0!important;margin:0 0 .25vh!important;padding:0!important;line-height:.82!important;}
-  .design-band{order:1!important;margin:0!important;height:68vw!important;min-height:260px!important;}
-  .design-word-bottom{order:2!important;margin:.5vh 0 0!important;padding:0!important;line-height:.82!important;}
-
-  /* Les trois photos restent empilées. Le titre traverse leur hauteur totale. */
-  .travel-band{
-    position:relative!important;
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr)!important;
-    grid-template-rows:repeat(3,auto)!important;
-    gap:0!important;
-    height:auto!important;
-    min-height:0!important;
-    overflow:hidden!important;
-  }
-  .travel-band .travel-photo{
-    display:block!important;
-    width:100%!important;
-    aspect-ratio:4 / 5!important;
-    min-height:0!important;
-    overflow:hidden!important;
-  }
-  .travel-band .travel-photo img{
-    display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;
-  }
-  .travel-band .word{
-    position:absolute!important;inset:0!important;z-index:8!important;
-    width:100%!important;height:100%!important;margin:0!important;padding:0!important;
-    display:block!important;transform:none!important;font-size:initial!important;
-    line-height:1!important;color:transparent!important;text-shadow:none!important;
-    pointer-events:none!important;
-  }
-  .travel-word-desktop{display:none!important;}
-  .travel-word-mobile{
-    position:absolute!important;inset:0!important;display:block!important;
-    width:100%!important;height:100%!important;padding:0!important;margin:0!important;
-    font-size:initial!important;line-height:1!important;letter-spacing:0!important;
-    color:rgba(255,255,255,.86)!important;pointer-events:none!important;
-  }
-  .travel-word-mobile .travel-voyages,
-  .travel-word-mobile .travel-rencontres{
-    position:absolute!important;display:block!important;
-    writing-mode:vertical-rl!important;text-orientation:upright!important;
-    transform:none!important;white-space:nowrap!important;
-    font-family:inherit!important;font-size:clamp(36px,10vw,62px)!important;
-    font-weight:800!important;line-height:1!important;letter-spacing:.02em!important;
-    color:rgba(255,255,255,.78)!important;
-    text-shadow:0 1px 10px rgba(0,0,0,.42)!important;
-  }
-  /* VOYAGES descend depuis le tiers supérieur gauche et se termine près du &. */
-  .travel-word-mobile .travel-voyages{
-    left:6%!important;top:4%!important;right:auto!important;bottom:auto!important;
-    height:43%!important;width:auto!important;text-align:left!important;
-    font-size:clamp(38px,10.5vw,66px)!important;
-    letter-spacing:.08em!important;
-  }
-  /* Le & se place au centre de la deuxième photo (milieu du bandeau complet). */
-  .travel-word-mobile .travel-amp{
-    position:absolute!important;left:50%!important;top:50%!important;
-    transform:translate(-50%,-50%)!important;display:block!important;
-    font-family:inherit!important;font-size:clamp(48px,13vw,82px)!important;
-    font-weight:800!important;line-height:1!important;color:rgba(255,255,255,.9)!important;
-    text-shadow:0 1px 10px rgba(0,0,0,.42)!important;
-  }
-  /* RENCONTRES repart à droite du & et descend vers le tiers inférieur de la troisième photo. */
-  .travel-word-mobile .travel-rencontres{
-    right:6%!important;left:auto!important;top:52%!important;bottom:auto!important;
-    height:38%!important;width:auto!important;text-align:left!important;
-    font-size:clamp(38px,10.5vw,66px)!important;
-    letter-spacing:.02em!important;
-  }
-}
-
-
-
-/* PATCH FINAL — règles prioritaires pour les ajustements mobiles demandés */
-@media (max-width:800px){
-  /* Bauhaus : le mot DESIGN reste proche de l’image, avec une marge équilibrée avec ARCHITECTURE. */
-  .design-composition{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
-  .design-word-top{display:block!important;width:100%!important;text-align:center!important;margin:0 0 .35vh!important;padding:0!important;line-height:.82!important;}
-  .design-band{display:block!important;order:1!important;margin:0!important;height:68vw!important;min-height:260px!important;}
-  .design-word-bottom{display:block!important;width:100%!important;text-align:center!important;margin:.45vh 0 0!important;padding:0!important;line-height:.82!important;}
-  .design-word-top,.design-word-bottom{font-family:inherit!important;font-weight:800!important;text-transform:uppercase!important;color:#fff!important;letter-spacing:-.075em!important;font-size:clamp(28px,8vw,52px)!important;white-space:nowrap!important;}
-
-  /* Les trois photos de voyage forment un seul bandeau vertical ; le titre se superpose à l’ensemble. */
-  .travel-band{position:relative!important;display:flex!important;flex-direction:column!important;gap:0!important;height:auto!important;min-height:0!important;overflow:hidden!important;}
-  .travel-band .travel-photo{position:relative!important;display:block!important;width:100%!important;height:auto!important;aspect-ratio:4/5!important;flex:none!important;overflow:hidden!important;}
-  .travel-band .travel-photo img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;}
-  .travel-band .word{position:absolute!important;inset:0!important;z-index:8!important;display:block!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important;transform:none!important;font-size:0!important;line-height:1!important;color:transparent!important;text-shadow:none!important;pointer-events:none!important;}
-  .travel-word-desktop{display:none!important;}
-  .travel-word-mobile{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important;font-size:initial!important;line-height:1!important;letter-spacing:0!important;color:rgba(255,255,255,.85)!important;pointer-events:none!important;}
-  .travel-word-mobile .travel-voyages,
-  .travel-word-mobile .travel-rencontres{position:absolute!important;display:block!important;writing-mode:vertical-rl!important;text-orientation:upright!important;transform:none!important;white-space:nowrap!important;font-family:inherit!important;font-size:clamp(42px,11vw,62px)!important;font-weight:800!important;line-height:1!important;letter-spacing:.01em!important;color:rgba(255,255,255,.8)!important;text-shadow:0 1px 10px rgba(0,0,0,.42)!important;}
-  /* VOYAGES : première lettre en haut, progression normale vers le centre. */
-  .travel-word-mobile .travel-voyages{left:6%!important;right:auto!important;top:4%!important;bottom:auto!important;width:auto!important;height:46%!important;text-align:left!important;}
-  /* Le & est au centre de la deuxième photo, soit au milieu des trois images. */
-  .travel-word-mobile .travel-amp{position:absolute!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;display:block!important;font-family:inherit!important;font-size:clamp(48px,13vw,78px)!important;font-weight:800!important;line-height:1!important;color:rgba(255,255,255,.92)!important;text-shadow:0 1px 10px rgba(0,0,0,.42)!important;}
-  /* RENCONTRES : démarre à droite du & et descend vers le tiers inférieur de la troisième photo. */
-  .travel-word-mobile .travel-rencontres{left:auto!important;right:6%!important;top:52%!important;bottom:auto!important;width:auto!important;height:43%!important;text-align:left!important;font-size:clamp(42px,11vw,62px)!important;}
+  .travel-word-mobile .travel-rencontres{left:auto!important;right:5%!important;top:51%!important;bottom:auto!important;}
+  .travel-word-mobile .travel-voyages span,
+  .travel-word-mobile .travel-rencontres span{display:block!important;line-height:.82!important;}
 }
 </style>
 </head>
@@ -960,7 +267,7 @@
     <div class="travel-photo"><img src="voyages-1.jpg" alt="Voyages et rencontres — photo 1"></div>
     <div class="travel-photo"><img src="voyages-2.jpg" alt="Voyages et rencontres — photo 2"></div>
     <div class="travel-photo"><img src="voyages-3.jpg" alt="Voyages et rencontres — photo 3"></div>
-    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile" aria-label="Voyages et rencontres"><span class="travel-voyages">Voyages</span><span class="travel-amp">&amp;</span><span class="travel-rencontres">Rencontres</span></span></div>
+    <div class="word"><span class="travel-word-desktop">Voyages<br>&amp; rencontres</span><span class="travel-word-mobile" aria-label="Voyages et rencontres"><span class="travel-voyages" aria-hidden="true"><span>V</span><span>O</span><span>Y</span><span>A</span><span>G</span><span>E</span><span>S</span></span><span class="travel-amp" aria-hidden="true">&amp;</span><span class="travel-rencontres" aria-hidden="true"><span>R</span><span>E</span><span>N</span><span>C</span><span>O</span><span>N</span><span>T</span><span>R</span><span>E</span><span>S</span></span></span></div>
   </div>
 </section>
 
